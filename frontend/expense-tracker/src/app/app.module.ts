@@ -22,12 +22,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/header/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
