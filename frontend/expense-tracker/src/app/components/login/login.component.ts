@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   login():void{
     this.userService.login(this.username, this.password).subscribe((user:User)=>{
       if(user){
+        console.log("user");
+
         localStorage.setItem('loggedUser', JSON.stringify(user)); 
         this.router.navigate(['dashboard']).
         then(() => {
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
         });
       }
       else{
+        console.log("wrong message");
         this.errorMessage = 'Wrong username or password!';
       }
     })

@@ -10,13 +10,14 @@ class UserController {
         this.login = async (req, res) => {
             let username = req.body.username;
             let password = req.body.password;
-            const user = await user_1.default.findOne({ 'username': username, 'password': password });
-            if (user) {
+            try {
+                const user = await user_1.default.findOne({ 'username': username, 'password': password });
                 res.json(user);
             }
-            else {
-                // Handle the case where no user was found
-                res.status(404).json({ message: 'User not found' });
+            catch (err) {
+                console.error(err);
+                // Handle the error
+                res.status(500).json({ message: 'Internal server error' });
             }
         };
     }

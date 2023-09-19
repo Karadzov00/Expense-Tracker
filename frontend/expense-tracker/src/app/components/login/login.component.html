@@ -2,6 +2,9 @@
   <div class="row justify-content-center">
       <div class="col-10 col-md-4">
           <form>
+              <div class="mb-4 mt-4">
+                  <span class="alert alert-danger mb-3" *ngIf="errorMessage">{{errorMessage}}  </span>
+              </div>
               <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Username</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -12,10 +15,10 @@
                   <input type="password" class="form-control" id="exampleInputPassword1" 
                   [(ngModel)]="password" name="password">
               </div>
-              <!-- Use the "btn-block" class to make the submit button full width -->
+
               <button type="submit" class="btn btn-danger btn-full-width"
               (click)="login()">Submit</button>
-              <!-- Add the "Forgot Password" and "Register" links -->
+              
               <div class="d-flex justify-content-between mt-3">
                   <a href="#">Forgot Password</a>
                   <a href="#" class="ml-auto">Register</a>
