@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require('mongoose');
 // Define the User schema
 const userSchema = new mongoose.Schema({
@@ -6,20 +8,19 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    password: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
         unique: true,
     },
-    password: {
-        type: String,
-        required: true,
-    },
-    name: String,
+    firstname: String,
+    lastname: String,
     profile_picture: String,
 });
 // Create and export the User model
-const User = mongoose.model('User', userSchema);
-module.exports = User;
-export {};
+exports.default = mongoose.model('User', userSchema, 'users');
 //# sourceMappingURL=user.js.map

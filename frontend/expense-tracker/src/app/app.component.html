@@ -16,7 +16,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" 
-            role="button" (click)="routerLogin()">About</a>
+           >About</a>
           </li>
         </ul>
         <div class="d-flex align-items-center" id="login">
@@ -25,10 +25,10 @@
           </a>
           <form class=" mr-2">
             <button class="btn btn-outline-success" type="submit" 
-            *ngIf="!user"
+            *ngIf="!user"  role="button" (click)="routerLogin()"
             >Login</button>
             <button class="btn btn-outline-primary" type="submit" 
-            *ngIf="user"
+            *ngIf="user"  role="button" (click)="logout()"
             >Logout</button>
           </form>
         </div>
