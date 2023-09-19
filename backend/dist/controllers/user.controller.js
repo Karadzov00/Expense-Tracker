@@ -4,18 +4,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
-const user_js_1 = __importDefault(require("../models/user.js"));
+const user_1 = __importDefault(require("../models/user"));
 class UserController {
     constructor() {
-        this.login = (req, res) => {
+        this.login = async (req, res) => {
             let username = req.body.username;
             let password = req.body.password;
-            user_js_1.default.findOne({ 'username': username, 'password': password }, (err, user) => {
-                if (err)
-                    console.log(err);
-                else
-                    res.json(user);
-            });
+            const user = await user_1.default.findOne({ 'username': username, 'password': password });
+            if (user) {
+                res.json(user);
+            }
+            else {
+                // Handle the case where no user was found
+                res.status(404).json({ message: 'User not found' });
+            }
         };
     }
 }
