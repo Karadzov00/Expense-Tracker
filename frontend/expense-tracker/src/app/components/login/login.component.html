@@ -20,8 +20,8 @@
               (click)="login()">Submit</button>
               
               <div class="d-flex justify-content-between mt-3">
-                  <a href="#">Forgot Password</a>
-                  <a href="#" class="ml-auto">Register</a>
+                  <a role="button" (click)="routerChangePassword()">Forgot Password</a>
+                  <a role="button" (click)="routerRegister()" class="ml-auto">Register</a>
               </div>
           </form>
       </div>

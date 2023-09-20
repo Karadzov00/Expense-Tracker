@@ -49,4 +49,8 @@ export class LoginComponent implements OnInit {
   routerRegister():void{
     this.router.navigate(['register']);
   }
+
+  routerChangePassword():void{
+    this.router.navigate(['changePassword']);
+  }
 }
