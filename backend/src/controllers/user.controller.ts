@@ -20,7 +20,7 @@ export class UserController{
           }
     }
 
-    register = (req: express.Request, res: express.Response)=>{
+    register = async (req: express.Request, res: express.Response)=>{
         let user = new User({
             username: req.body.username,
             password: req.body.password,
@@ -30,12 +30,12 @@ export class UserController{
             profile_picture: req.body.profile_picture
         })
 
-        user.save((err, resp)=>{
-            if(err) {
-                console.log(err);
-                res.status(400).json({"message": "error"})
-            }
-            else res.json({"message": "ok"})
-        })
+        try {
+            const ret = await user.save();
+            res.json({"message": "ok"})
+        } catch (error) {
+            console.log(error);
+            res.status(400).json({"message": "error"})
+        }
     }
 }

@@ -18,11 +18,8 @@ export class RegisterComponent implements OnInit {
   password2: string; 
   firstname:string; 
   lastname:string; 
-  address:string; 
-  phone:string; 
   email:string; 
   image:string; 
-  type:string;
   message: string; 
   imageChosen: boolean; 
   status: string; 

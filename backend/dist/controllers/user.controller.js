@@ -20,6 +20,24 @@ class UserController {
                 res.status(500).json({ message: 'Internal server error' });
             }
         };
+        this.register = async (req, res) => {
+            let user = new user_1.default({
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email,
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                profile_picture: req.body.profile_picture
+            });
+            try {
+                const ret = await user.save();
+                res.json({ "message": "ok" });
+            }
+            catch (error) {
+                console.log(error);
+                res.status(400).json({ "message": "error" });
+            }
+        };
     }
 }
 exports.UserController = UserController;
