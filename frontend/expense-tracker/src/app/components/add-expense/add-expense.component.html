@@ -1,23 +1,93 @@
-
-<div class="container">
-    <div class="row justify-content-center mt-5">
-        <div class="col-10 col-md-4 mt-3">
-            <p class="fs-1">Add Expense</p>
-            <mat-form-field class="mb-3">
-                <input matInput [matDatepicker]="picker2"
-                       >
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-              
-            <div class="input-group ">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">$</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-              </div>
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-8 col-md-5 mt-3">
+        <p class="fs-1">Add Expense</p>
+        
+        <div class="input-group mb-3 mt-5">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Date:</span>
+          </div>
+          <input type="text" class="form-control" [matDatepicker]="picker2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
         </div>
+        <!-- Account dropdown -->
+        <div class="d-flex mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Payment:</span>
+                </div>
+                <div class="dropdown col-md-2">
+                    <button class="btn  dropdown-toggle col" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Choose payment type
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Credit card</a></li>
+                      <li><a class="dropdown-item" href="#">Debit card</a></li>
+                      <li><a class="dropdown-item" href="#">Cash</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text ">Amount:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+        </div>
+        
+        <div class="d-flex mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Category:</span>
+                </div>
+                <div class="dropdown col-md-2">
+                    <button class="btn  dropdown-toggle col" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Choose category
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" (click)="paymentType = 'Credit card'">Credit card</a></li>
+                        <li><a class="dropdown-item" href="#" (click)="paymentType = 'Debit card'">Debit card</a></li>
+                        <li><a class="dropdown-item" href="#" (click)="paymentType = 'Cash'">Cash</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+
+        <!-- Description input field -->
+        <div class="d-flex mb-3 align-items-center">
+            <div class="flex-fill">
+            <div class="input-group">
+                <div class="input-group-prepend align-items-center">
+                <span class="input-group-text">Description:</span>
+                </div>
+                <!-- Larger text area with 3-4 rows -->
+                <textarea class="form-control" rows="2" placeholder="Enter description"></textarea>
+            </div>
+            </div>
+        </div>
+
+        <div class="d-flex mb-3">
+            <label class="image-upload-container btn btn-bwm" id="validationCustom06">
+                <label for="validationCustom06" >Receipt image </label>
+                <input #imageInput
+                        type="file"
+                        accept="image/*"
+                        (change)="processFile(imageInput)" 
+                        class="form-control"
+                        name="image">
+                </label>
+        </div>
+
+        <div class="d-flex mb-3 justify-content-between mt-4">
+            <button type="submit " class="btn btn-danger col-4 col-md-4"
+            >Submit</button>
+        </div>
+        
+      </div>
     </div>
-</div>
+  </div>
