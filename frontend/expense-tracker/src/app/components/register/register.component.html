@@ -1,6 +1,6 @@
 
-<div class="container">
-    <form class="needs-validation" novalidate>
+<div class="container ">
+    <div class="row m-auto" id="registerForm"> 
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="validationCustom01">Ime</label>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <label for="inputPassword4" class="col-sm-2 col-form-label">Potvrdite lozinku</label>
+                <label for="inputPassword4" class="col-sm-2 col-form-label">Confirm password</label>
                 <input type="password" class="form-control" id="inputPassword4" placeholder="Lozinka"
                 [(ngModel)]="password2" name="password2" required>
                 <div class="invalid-feedback">
@@ -51,15 +51,7 @@
             </div>
         </div>
         <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="validationCustom03">Adresa</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Adresa" required
-            [(ngModel)]="address" name="address">
-            <div class="invalid-feedback">
-                Molima vas unesite validnu adresu  
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3 mt-3">
             <label for="validationCustom05">Email adresa</label>
             <input type="text" class="form-control" id="validationCustom05" placeholder="Email" required
             [(ngModel)]="email" name="email">
@@ -68,7 +60,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group ">
             <label class="image-upload-container btn btn-bwm" id="validationCustom06">
                 <label for="validationCustom06">Izaberite sliku</label>
                 <input #imageInput
@@ -88,7 +80,7 @@
         <!-- <form action="/profile" method="post" enctype="multipart/form-data">
           <input type="file" name="avatar" />
         </form> -->
-        <div class="form-group">
+        <div class="form-group mt-3">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="check" required >
             <label class="form-check-label" for="invalidCheck">
@@ -97,8 +89,9 @@
             <div class="invalid-feedback">
               You have to agree with terms and conditions
             </div>
-          </div>
+            </div>
         </div>
+        <button class="btn col-md-3 btn-danger" type="submit" name="register" (click)="register()">Registruj se</button>
         <div *ngIf="showAlert">
             <div class="col-md-3">
                 <div class="alert alert-success " *ngIf="userAdded">
@@ -111,11 +104,9 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-warning" type="submit" name="register" (click)="register()">Registruj se</button>
-      </form>
      
-    
-  </div>
+    </div> 
+</div>
     <script>
   
   (function() {
