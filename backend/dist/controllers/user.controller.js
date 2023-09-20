@@ -27,7 +27,7 @@ class UserController {
                 email: req.body.email,
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
-                profile_picture: req.body.profile_picture
+                profile_picture: req.body.image
             });
             try {
                 const ret = await user.save();
@@ -35,6 +35,16 @@ class UserController {
             }
             catch (error) {
                 console.log(error);
+                res.status(400).json({ "message": "error" });
+            }
+        };
+        this.findUser = async (req, res) => {
+            let username = req.body.username;
+            try {
+                const user = await user_1.default.findOne({ 'username': username });
+                res.json(user);
+            }
+            catch (error) {
                 res.status(400).json({ "message": "error" });
             }
         };

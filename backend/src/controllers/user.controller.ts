@@ -27,14 +27,25 @@ export class UserController{
             email: req.body.email,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
-            profile_picture: req.body.profile_picture
+            profile_picture: req.body.image
         })
 
         try {
             const ret = await user.save();
-            res.json({"message": "ok"})
+            res.json({"message": "ok"});
         } catch (error) {
             console.log(error);
+            res.status(400).json({"message": "error"})
+        }
+    }
+
+    findUser = async (req: express.Request, res: express.Response)=>{
+        let username = req.body.username; 
+
+        try {
+            const user = await User.findOne({'username':username});
+            res.json(user);
+        } catch (error) {
             res.status(400).json({"message": "error"})
         }
     }
