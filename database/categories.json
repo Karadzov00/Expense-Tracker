@@ -1,0 +1,18 @@
+[
+    {"id": 1, "name": "Food"},
+    {"id": 2, "name": "Transportation"},
+    {"id": 3, "name": "Rent"},
+    {"id": 4, "name": "Bills"},
+    {"id": 5, "name": "Utilities"},
+    {"id": 6, "name": "Health and Wellness"},
+    {"id": 7, "name": "Dining Out"},
+    {"id": 8, "name": "Entertainment"},
+    {"id": 9, "name": "Shopping"},
+    {"id": 10, "name": "Travel"},
+    {"id": 11, "name": "Education"},
+    {"id": 12, "name": "Insurance"},
+    {"id": 13, "name": "Personal Care"},
+    {"id": 14, "name": "Home Maintenance"},
+    {"id": 15, "name": "Gifts"}
+]
+  

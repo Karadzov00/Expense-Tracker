@@ -12,7 +12,9 @@
             <a class="nav-link active" aria-current="page" href="#">Report</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-danger" aria-current="page" href="#">Add Expense</a>
+            <a class="nav-link active text-danger" aria-current="page" 
+            role="button" (click)="routerAddExpense()" 
+            >Add Expense</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" 
@@ -20,8 +22,11 @@
           </li>
         </ul>
         <div class="d-flex align-items-center" id="login">
-          <a class="navbar-brand" >
+          <a class="navbar-brand" *ngIf="!user" >
             <img src="assets/no_user_image.png" alt="" width="30" height="32" id="avatar">
+          </a>
+          <a class="navbar-brand"  *ngIf="user">
+            <img [src]="user.profile_picture" alt="" width="30" height="32" id="avatar">
           </a>
           <form class=" mr-2">
             <button class="btn btn-outline-success" type="submit" 

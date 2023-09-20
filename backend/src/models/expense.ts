@@ -2,35 +2,21 @@ const mongoose = require('mongoose');
 
 // Define the Expense schema
 const expenseSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // References the User model
-    required: true,
-  },
+  username: String, // Assuming 'username' is related to the user who incurred the expense
   date: {
-    type: Date,
-    required: true,
+     type: Date, required: true 
   },
   categoryId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category', // References the Category model
-    required: true,
-  },
-  type: {
-    type: String,
-    required: true,
-    enum: ['Expense', 'Income'],
-  },
+     type: Number
+  }, // Assuming a reference to a 'Category' model
   amount: {
-    type: Number,
-    required: true,
+    type: Number
   },
   description: String,
   payment_method: String,
-  attachment: String, // Store the file path or a reference to the attachment
+  attachment: String, // Store the file path or URL of the receipt image
 });
 
 // Create and export the Expense model
 export default mongoose.model('Expense', expenseSchema, 'expenses');
-
 

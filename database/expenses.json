@@ -1,0 +1,28 @@
+[
+    {
+      "username": "karadzov",
+      "date": "2023-09-15",
+      "categoryId": 1, 
+      "amount": 50.0,
+      "description": "Grocery shopping",
+      "payment_method": "Credit Card"
+    },
+    {
+      "username": "pera",
+      "date": "2023-09-16",
+      "categoryId": 7, 
+      "amount": 30.0,
+      "description": "Dinner at a restaurant",
+      "payment_method": "Cash"
+    },
+    {
+      "username": "nemanja",
+      "date": "2023-09-17",
+      "categoryId": 2, 
+      "amount": 40.0,
+      "description": "Gas for the car",
+      "payment_method": "Debit Card"
+      
+    }
+  ]
+  

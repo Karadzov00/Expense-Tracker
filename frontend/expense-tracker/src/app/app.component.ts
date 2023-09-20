@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'expense-tracker';
 
   user: User;
-  loggedIn: boolean;
+  loggedIn: boolean = false;
   noUserImage: String; 
 
   constructor(private router: Router, private userService: UserService){}
@@ -46,6 +46,10 @@ export class AppComponent {
   changePassword(){
 
     this.router.navigate(['changePassword']);
+  }
+
+  routerAddExpense(){
+    this.router.navigate(['addExpense']);
   }
 
 }
