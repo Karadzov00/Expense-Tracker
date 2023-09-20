@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AddExpenseService } from 'src/app/services/add-expense.service';
 import { Category } from 'src/app/models/category';
+import { ExpenseService } from 'src/app/services/expense.service';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class AddExpenseComponent implements OnInit {
   paymentType: string; 
 
   constructor(private router:Router, private userService:UserService,
-    private addExpenseService: AddExpenseService) { }
+    private expenseService: ExpenseService) { }
 
   date = new FormControl(new Date());
   serializedDate = new FormControl(new Date().toISOString());
@@ -37,7 +37,7 @@ export class AddExpenseComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
 
-    this.addExpenseService.fetchAllCategories().subscribe((categories: Category[])=>{
+    this.expenseService.fetchAllCategories().subscribe((categories: Category[])=>{
       this.allCategories = categories;
       console.log(this.allCategories);
     })
