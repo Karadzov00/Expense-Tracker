@@ -2,6 +2,7 @@ import express, { Request } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import userRouter from './routers/user.routes';
+import expenseRouter from './routers/expense.routes';
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ connection.once('open', ()=>{
 
 const router = express.Router();
 router.use('/users', userRouter);
+router.use('/expense', expenseRouter);
 
 app.use('/', router); 
 

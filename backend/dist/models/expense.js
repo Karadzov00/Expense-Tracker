@@ -3,32 +3,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require('mongoose');
 // Define the Expense schema
 const expenseSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-    },
+    username: String,
     date: {
-        type: Date,
-        required: true,
+        type: Date, required: true
     },
     categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true,
-    },
-    type: {
-        type: String,
-        required: true,
-        enum: ['Expense', 'Income'],
+        type: Number
     },
     amount: {
-        type: Number,
-        required: true,
+        type: Number
     },
     description: String,
     payment_method: String,
-    attachment: String, // Store the file path or a reference to the attachment
+    attachment: String, // Store the file path or URL of the receipt image
 });
 // Create and export the Expense model
 exports.default = mongoose.model('Expense', expenseSchema, 'expenses');
