@@ -27,23 +27,21 @@
             <button class="btn btn-outline-success" type="submit" 
             *ngIf="!user"  role="button" (click)="routerLogin()"
             >Login</button>
-            <button class="btn btn-outline-primary mx-2" type="submit" 
-            *ngIf="user"  role="button" (click)="changePassword()"
-            >Change password</button>
-            <button class="btn btn-outline-danger" type="submit" 
-            *ngIf="user"  role="button" (click)="logout()"
-            >Logout</button>
           </form>
         </div>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            User Menu
+          <button class="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+          [disabled]="!user">
+            <span class="navbar-toggler-icon"></span> <!-- Hamburger icon -->
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/change-password">Change Password</a>
-            <a class="dropdown-item" href="/logout">Logout</a>
-          </div>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" role="button"
+              (click)="changePassword()">Change Password</a></li>
+            <li><a class="dropdown-item" role="button"
+              (click)="logout()">Logout</a></li>
+          </ul>
         </div>
+        
       </div>
     </div>
   </nav>
