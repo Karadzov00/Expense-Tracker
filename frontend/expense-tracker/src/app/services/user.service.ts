@@ -67,7 +67,7 @@ export class UserService {
 
   }
 
-  register(username, password, email, firstname, lastname, image){
+  register(username: String, password: String, email: String, firstname: String, lastname: String, image: String){
     const data={
       username: username,
       password: password,
@@ -77,6 +77,15 @@ export class UserService {
       image: image
     }
     return this.http.post(`${this.uri}/users/register`, data)
+
+  }
+
+  updatePassword(username: String, password: String){
+    const data={
+      username:username,
+      password:password
+    }
+    return this.http.put(`${this.uri}/users/updatePassword/${username}`, data)
 
   }
 

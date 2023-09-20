@@ -16,4 +16,8 @@ userRouter.route('/findUser').post(
     (req, res) => new UserController().findUser(req, res)
 )
 
+userRouter.route('/updatePassword/:username').put(
+    (req, res) => new UserController().updatePassword(req, res)
+)
+
 export default userRouter;

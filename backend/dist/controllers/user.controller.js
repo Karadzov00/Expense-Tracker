@@ -48,6 +48,17 @@ class UserController {
                 res.status(400).json({ "message": "error" });
             }
         };
+        this.updatePassword = async (req, res) => {
+            let username = req.params.username;
+            let password = req.body.password;
+            try {
+                const user = await user_1.default.updateOne({ 'username': username }, { $set: { 'password': password } });
+                res.json({ 'message': 'ok' });
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
     }
 }
 exports.UserController = UserController;
