@@ -1,1 +1,138 @@
-<p>register works!</p>
+
+<div class="container">
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom01">Ime</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="Ime"  required
+            [(ngModel)]="firstname" name="firstname">
+            <div class="invalid-feedback">
+              Molimo vas unesite vaše ime
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom02">Prezime</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Prezime"  required
+            [(ngModel)]="lastname" name="lastname">
+            <div class="invalid-feedback">
+                Molimo vas unesite vaše prezime
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustomUsername">Koriscničko ime</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+              </div>
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Korisničko ime" aria-describedby="inputGroupPrepend" required
+              [(ngModel)]="username" name="username">
+              <div class="invalid-feedback">
+              Molimo vas unesite korisničko ime 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Lozinka</label>
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Lozinka"
+                [(ngModel)]="password" name="password" required>
+                <div class="invalid-feedback">
+                    Molima vas unesite lozinku 
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="inputPassword4" class="col-sm-2 col-form-label">Potvrdite lozinku</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Lozinka"
+                [(ngModel)]="password2" name="password2" required>
+                <div class="invalid-feedback">
+                    Molima vas potvrdite lozinku 
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationCustom03">Adresa</label>
+            <input type="text" class="form-control" id="validationCustom03" placeholder="Adresa" required
+            [(ngModel)]="address" name="address">
+            <div class="invalid-feedback">
+                Molima vas unesite validnu adresu  
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Email adresa</label>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="Email" required
+            [(ngModel)]="email" name="email">
+            <div class="invalid-feedback">
+              Molimo vas unesite validnu email adresu 
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="image-upload-container btn btn-bwm" id="validationCustom06">
+                <label for="validationCustom06">Izaberite sliku</label>
+                <input #imageInput
+                      type="file"
+                      accept="image/*"
+                      (change)="processFile(imageInput)" 
+                      class="form-control"
+                      name="image">
+              </label>
+        </div>
+        <!-- <div class="form-group col-md-3">
+          <form action="/profile" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="avatar" class="form-control" />
+            <input type="submit" value="Upload a file" class="form-control"/>
+         </form>
+        </div> -->
+        <!-- <form action="/profile" method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+        </form> -->
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="check" required >
+            <label class="form-check-label" for="invalidCheck">
+              I agree with terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You have to agree with terms and conditions
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showAlert">
+            <div class="col-md-3">
+                <div class="alert alert-success " *ngIf="userAdded">
+                {{successMessage}}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="alert alert-danger " *ngIf="!userAdded">
+                {{message}}
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-warning" type="submit" name="register" (click)="register()">Registruj se</button>
+      </form>
+     
+    
+  </div>
+    <script>
+  
+  (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>

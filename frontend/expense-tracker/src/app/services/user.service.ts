@@ -67,4 +67,17 @@ export class UserService {
 
   }
 
+  register(username, password, email, firstname, lastname, image){
+    const data={
+      username: username,
+      password: password,
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      image: image
+    }
+    return this.http.post(`${this.uri}/users/register`, data)
+
+  }
+
 }
