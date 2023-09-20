@@ -26,6 +26,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     HomepageComponent,
     DashboardComponent,
     ChangePasswordComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,11 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     MatSnackBarModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

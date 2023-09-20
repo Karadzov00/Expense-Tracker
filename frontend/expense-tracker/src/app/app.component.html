@@ -27,10 +27,22 @@
             <button class="btn btn-outline-success" type="submit" 
             *ngIf="!user"  role="button" (click)="routerLogin()"
             >Login</button>
-            <button class="btn btn-outline-primary" type="submit" 
+            <button class="btn btn-outline-primary mx-2" type="submit" 
+            *ngIf="user"  role="button" (click)="changePassword()"
+            >Change password</button>
+            <button class="btn btn-outline-danger" type="submit" 
             *ngIf="user"  role="button" (click)="logout()"
             >Logout</button>
           </form>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User Menu
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/change-password">Change Password</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
         </div>
       </div>
     </div>
