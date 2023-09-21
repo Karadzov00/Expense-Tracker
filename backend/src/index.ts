@@ -17,7 +17,7 @@ connection.once('open', ()=>{
 
 const router = express.Router();
 router.use('/users', userRouter);
-router.use('/expense', expenseRouter);
+router.use('/expenses', expenseRouter);
 
 app.use('/', router); 
 

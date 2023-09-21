@@ -18,7 +18,7 @@ connection.once('open', () => {
 });
 const router = express_1.default.Router();
 router.use('/users', user_routes_1.default);
-router.use('/expense', expense_routes_1.default);
+router.use('/expenses', expense_routes_1.default);
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 //# sourceMappingURL=index.js.map
