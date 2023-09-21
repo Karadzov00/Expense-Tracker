@@ -7,6 +7,10 @@ import { ExpenseService } from 'src/app/services/expense.service';
 import { UserService } from 'src/app/services/user.service';
 import { EventEmitter, Input, Output } from '@angular/core';
 
+interface CurrencySums {
+  [currency: string]: number; // Keys are currency codes, values are numbers
+}
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -21,6 +25,9 @@ export class ReportComponent implements OnInit {
   expenses: Expense[]=[];
   allCategories: Category[];
   categoryNames: string[];
+  expenseSum: number; 
+  currencySums: CurrencySums = {};
+  showTotal: boolean = false;
 
 
   constructor(private router:Router, private userService:UserService,
@@ -32,7 +39,7 @@ export class ReportComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
     this.expenseService.fetchAllCategories().subscribe((categories: Category[])=>{
       this.allCategories = categories;
-      // console.log(this.allCategories);
+      console.log(this.allCategories);
       this.categoryNames = this.allCategories.map(category => category.name);
       console.log(this.categoryNames);
     })
@@ -85,10 +92,24 @@ export class ReportComponent implements OnInit {
        this.date2).subscribe((expenses: Expense[])=>{
           console.log(expenses);
           this.expenses = expenses;
+          this.expenses.forEach((expense) => {
+            const { amount, currency } = expense;
+            if (!this.currencySums[currency]) {
+              this.currencySums[currency] = amount;
+            } else {
+              this.currencySums[currency] += amount;
+            }
+          });
+
+          console.log(this.currencySums);
+          this.showTotal = true;
        }) 
 
   }
 
+  getCurrencies(currencySums: { [currency: string]: number }): string[] {
+    return Object.keys(currencySums);
+  }
 
   viewExpense(expense: Expense):void{
     

@@ -32,6 +32,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
 import { ReportComponent } from './components/report/report.component';
+import { ExpenseDetailsComponent } from './components/expense-details/expense-details.component';
+import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ReportComponent } from './components/report/report.component';
     DashboardComponent,
     ChangePasswordComponent,
     AddExpenseComponent,
-    ReportComponent
+    ReportComponent,
+    ExpenseDetailsComponent,
+    EditExpenseComponent
     
   ],
   imports: [
