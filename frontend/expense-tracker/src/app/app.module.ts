@@ -20,7 +20,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/header/navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -68,7 +68,6 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
