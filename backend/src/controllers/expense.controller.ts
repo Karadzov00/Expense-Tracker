@@ -37,4 +37,21 @@ export class ExpenseController{
         }
     }
 
+    fetchExpensesByPeriod = async (req: express.Request, res: express.Response)=>{
+        const { username, date1, date2 } = req.body;
+        try {
+            // Find expenses that match the criteria
+            const expenses = await Expense.find({
+            username: username,
+            date: { $gte: date1, $lte: date2 }, // Date is between date1 and date2
+            });
+
+            res.json(expenses); // Return the expenses as JSON
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+
+    }
+
 }

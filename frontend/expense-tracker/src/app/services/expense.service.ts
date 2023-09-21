@@ -24,4 +24,14 @@ export class ExpenseService {
     return this.http.post(`${this.uri}/expenses/addExpense`, data); 
 
   }
+
+  fetchExpensesByPeriod(username: String, date1: Date, date2: Date){
+    const data={
+      username: username,
+      date1: date1, 
+      date2: date2
+    }
+    return this.http.get(`${this.uri}/expenses/fetchExpensesByPeriod`); 
+
+  }
 }

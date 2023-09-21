@@ -7,17 +7,17 @@
           <div class="row justify-content-center"> <!-- Center the options -->
             <div class="col-md-2 mt-3 ms-3">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption1" value="option1">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption1" value="thisMonth" [(ngModel)]="period">
                 <label class="form-check-label" for="radioOption1">
-                  Option 1
+                  This month
                 </label>
               </div>
             </div>
             <div class="col-md-5 mt-3 ms-3">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption2" value="option2">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption2" value="dateRange" [(ngModel)]="period">
                 <label class="form-check-label" for="radioOption2">
-                  Option 2
+                  Date range
                 </label>
               </div>
               <div class="row m-2">
@@ -39,15 +39,16 @@
             </div>
             <div class="col-md-2 mt-3 ms-3">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption3" value="option3">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption3" value="all" [(ngModel)]="period">
                 <label class="form-check-label" for="radioOption3">
-                  Option 3
+                  All expenses
                 </label>
               </div>
             </div>
                   <!-- New row for the submit button -->
             <div class="row col-2 col-md-2 justify-content-end " id="button">
-                <button type="submit" class="btn btn-danger">Submit</button>
+                <button type="submit" class="btn btn-danger"
+                (click)="showReport()">Submit</button>
             </div>
           </div>
           
