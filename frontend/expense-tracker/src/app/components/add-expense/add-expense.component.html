@@ -3,18 +3,14 @@
       <div class="col-8 col-md-5 mt-3">
         <p class="fs-1">Add Expense</p>
         
-        <div class="d-flex mb-3 mt-5">
-            <mat-form-field class="col-md-7 ml-4">
-            <mat-label>Choose date of expense</mat-label>
-            <input matInput [matDatepicker]="picker3" [value]="date.value">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
-            <mat-datepicker #picker3></mat-datepicker>
-            </mat-form-field>
-              
+        <div class="input-group mb-3 mt-5">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Date:</span>
+          </div>
+          <input type="text" class="form-control" [matDatepicker]="picker2" [(ngModel)]="date">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
         </div>
-
-
         <!-- Account dropdown -->
         <div class="d-flex mb-3">
             <div class="input-group">
@@ -45,7 +41,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Amount:</span>
             </div>
-            <input type="text" class="form-control flex-grow-1" aria-label="Amount (to the nearest dollar)">
+            <input type="text" class="form-control flex-grow-1" aria-label="Amount (to the nearest dollar)"
+            [(ngModel)]="amount">
             <select class="form-select flex-shrink-1" id="currencySelect" [(ngModel)]="currency">
               <option value="USD">$</option>
               <option value="EUR">€</option>
@@ -86,7 +83,8 @@
                 <span class="input-group-text">Description:</span>
                 </div>
                 <!-- Larger text area with 3-4 rows -->
-                <textarea class="form-control" rows="2" placeholder="Enter description"></textarea>
+                <textarea class="form-control" rows="2" placeholder="Enter description"
+                [(ngModel)]="description"></textarea>
             </div>
             </div>
         </div>
@@ -105,8 +103,10 @@
 
         <div class="d-flex mb-3 justify-content-between mt-4">
             <button type="submit " class="btn btn-danger col-4 col-md-4"
+            (click)="addExpense()"
             >Submit</button>
         </div>
+        
       </div>
     </div>
   </div>

@@ -67,4 +67,14 @@ export class AddExpenseComponent implements OnInit {
     this.paymentType=type; 
   }
 
+  addExpense():void{
+    console.log(this.date);
+    console.log(this.paymentType);
+    console.log(this.amount);
+    console.log(this.category);
+    console.log(this.description);
+    // console.log(this.image);
+    
+  }
+
 }
