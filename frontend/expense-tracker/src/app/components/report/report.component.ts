@@ -19,6 +19,7 @@ export class ReportComponent implements OnInit {
   period: String; 
   expenses: Expense[]=[];
   allCategories: Category[];
+  categoryNames: string[];
 
   constructor(private router:Router, private userService:UserService,
     private expenseService: ExpenseService) { }
@@ -27,8 +28,14 @@ export class ReportComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
     this.expenseService.fetchAllCategories().subscribe((categories: Category[])=>{
       this.allCategories = categories;
-      console.log(this.allCategories);
+      // console.log(this.allCategories);
+      this.categoryNames = this.allCategories.map(category => category.name);
+      console.log(this.categoryNames);
     })
+  }
+
+  getCategoryName(index: number):String{
+    return this.categoryNames[index-1];
   }
 
 

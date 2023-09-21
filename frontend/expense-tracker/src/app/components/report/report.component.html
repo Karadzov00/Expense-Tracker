@@ -74,7 +74,7 @@
               <tr *ngFor="let expense of expenses">
                 <td>{{ expense.date | date: 'yyyy-MM-dd' }}</td>
                 <td>{{ expense.description }}</td>
-                <td>{{ expense.categoryId }}</td>
+                <td>{{ getCategoryName(expense.categoryId) }}</td>
                 <td>{{ expense.amount }}</td>
                 <td>{{ expense.currency }}</td>
               </tr>
