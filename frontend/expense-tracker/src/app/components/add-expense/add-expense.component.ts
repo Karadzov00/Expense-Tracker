@@ -104,6 +104,11 @@ export class AddExpenseComponent implements OnInit {
     }
 
     console.log(newExpense);
+
+    this.expenseService.addExpense(newExpense).subscribe(resp=>{
+      alert(resp['message']);
+    })
+
   }
 
 }
