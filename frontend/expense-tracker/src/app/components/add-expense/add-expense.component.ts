@@ -34,7 +34,6 @@ export class AddExpenseComponent implements OnInit {
     private expenseService: ExpenseService) { }
 
   date: Date;
-  serializedDate = new FormControl(new Date().toISOString());
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
