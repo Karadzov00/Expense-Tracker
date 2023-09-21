@@ -63,6 +63,8 @@ export class ReportComponent implements OnInit {
         this.date1.setDate(1);
         break; 
     }
+    console.log(this.date1);
+    console.log(this.date2);
     this.expenseService.fetchExpensesByPeriod(this.user.username, this.date1,
        this.date2).subscribe((expenses: Expense[])=>{
           console.log(expenses);

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Expense } from '../models/expense';
 
@@ -25,13 +25,15 @@ export class ExpenseService {
 
   }
 
-  fetchExpensesByPeriod(username: String, date1: Date, date2: Date){
-    const data={
-      username: username,
-      date1: date1, 
-      date2: date2
-    }
-    return this.http.get(`${this.uri}/expenses/fetchExpensesByPeriod`); 
+  fetchExpensesByPeriod(username: string, date1: Date, date2: Date){
+
+    const params = new HttpParams()
+    .set('username', username)
+    .set('date1', date1.toISOString()) // Convert Date to ISO string
+    .set('date2', date2.toISOString()); // Convert Date to ISO string
+
+    // Make the GET request with the query parameters
+    return this.http.get(`${this.uri}/expenses/fetchExpensesByPeriod`, { params });
 
   }
 }
