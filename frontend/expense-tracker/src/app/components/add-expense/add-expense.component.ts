@@ -22,13 +22,12 @@ export class AddExpenseComponent implements OnInit {
   paymentTypes: string[] = ["cash", "credit card", "debit card"];
   allCategories: Category[]=[]; 
   amount: number; 
-  category: string;
+  category: string = 'Choose category';
   categoryID: number; 
   description: string; 
   receiptImg: string; 
-  paymentType: string; 
+  paymentType: string = 'Select payment type'; 
   currency: string; 
-
 
   constructor(private router:Router, private userService:UserService,
     private expenseService: ExpenseService) { }
@@ -62,6 +61,10 @@ export class AddExpenseComponent implements OnInit {
 
   selectCategory(categoryItem: Category): void{
     this.category = categoryItem.name;
+  }
+
+  selectPaymentType(type:string):void{
+    this.paymentType=type; 
   }
 
 }

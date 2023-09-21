@@ -19,12 +19,19 @@
                 </div>
                 <div class="dropdown col-md-2">
                     <button class="btn  dropdown-toggle col" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Choose payment type
+                     {{paymentType}}
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Credit card</a></li>
-                      <li><a class="dropdown-item" href="#">Debit card</a></li>
-                      <li><a class="dropdown-item" href="#">Cash</a></li>
+                      <li><a class="dropdown-item"
+                        (click)="selectPaymentType('Credit card')">
+                        Credit card</a></li>
+                      <li><a class="dropdown-item"
+                        (click)="selectPaymentType('Cash')">
+                        Cash</a></li>
+                      <li><a class="dropdown-item"
+                        (click)="selectPaymentType('Debit card')">
+                        Debit card</a></li>
+
                     </ul>
                   </div>
             </div>
@@ -52,12 +59,12 @@
               </div>
               <div class="dropdown col-md-2">
                 <button class="btn dropdown-toggle col" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Choose category
+                  {{category}}
                 </button>
                 <ul class="dropdown-menu">
                   <!-- Iterate through allCategories and create dropdown items -->
                   <li *ngFor="let categoryItem of allCategories">
-                    <a class="dropdown-item" href="#" (click)="selectCategory(categoryItem)">
+                    <a class="dropdown-item"  (click)="selectCategory(categoryItem)">
                       {{ categoryItem.name }}
                     </a>
                   </li>
