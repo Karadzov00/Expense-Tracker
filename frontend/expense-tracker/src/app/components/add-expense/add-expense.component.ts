@@ -27,6 +27,8 @@ export class AddExpenseComponent implements OnInit {
   description: string; 
   receiptImg: string; 
   paymentType: string; 
+  currency: string; 
+
 
   constructor(private router:Router, private userService:UserService,
     private expenseService: ExpenseService) { }
@@ -56,6 +58,10 @@ export class AddExpenseComponent implements OnInit {
     });
 
     reader.readAsDataURL(file);
+  }
+
+  selectCategory(categoryItem: Category): void{
+    this.category = categoryItem.name;
   }
 
 }

@@ -5,3 +5,7 @@
   .custom-width {
     width: 150px; /* Adjust the width as needed */
   }
+
+  #currencySelect{
+    width:20px
+  }

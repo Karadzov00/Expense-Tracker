@@ -12,6 +12,7 @@ const expenseSchema = new mongoose.Schema({
   amount: {
     type: Number
   },
+  currency: String, 
   description: String,
   payment_method: String,
   attachment: String, // Store the file path or URL of the receipt image

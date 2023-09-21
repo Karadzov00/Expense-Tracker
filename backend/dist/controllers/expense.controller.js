@@ -8,7 +8,6 @@ const category_1 = __importDefault(require("../models/category"));
 class ExpenseController {
     constructor() {
         this.fetchAllCategories = async (req, res) => {
-            console.log("expense controller");
             try {
                 const books = await category_1.default.find({});
                 res.json(books);
