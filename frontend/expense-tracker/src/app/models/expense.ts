@@ -1,4 +1,5 @@
 export class Expense{
+    id: number;
     username: string;
     date: Date;
     categoryId: number;

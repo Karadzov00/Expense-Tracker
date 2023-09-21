@@ -64,9 +64,10 @@
               <tr>
                 <th>Date</th>
                 <th>Description</th>
-                <th>Category ID</th>
+                <th>Category</th>
                 <th>Amount</th>
                 <th>Currency</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -77,6 +78,17 @@
                 <td>{{ getCategoryName(expense.categoryId) }}</td>
                 <td>{{ expense.amount }}</td>
                 <td>{{ expense.currency }}</td>
+                <td>
+                    <button class="btn " (click)="viewExpense(expense)">
+                    <i class="bi bi-eye" style="color: blue;"></i> 
+                    </button>
+                    <button class="btn " (click)="editExpense(expense)">
+                    <i class="bi bi-pencil" style="color: rgb(0, 0, 0);"></i> 
+                    </button>
+                    <button class="btn " (click)="deleteExpense(expense)">
+                    <i class="bi bi-trash" style="color: red;"></i> 
+                    </button>
+                </td>
               </tr>
             </tbody>
           </table>

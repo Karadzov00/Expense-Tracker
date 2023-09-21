@@ -5,6 +5,7 @@ import { Expense } from 'src/app/models/expense';
 import { User } from 'src/app/models/user';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { UserService } from 'src/app/services/user.service';
+import { EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-report',
@@ -21,8 +22,11 @@ export class ReportComponent implements OnInit {
   allCategories: Category[];
   categoryNames: string[];
 
+
   constructor(private router:Router, private userService:UserService,
     private expenseService: ExpenseService) { }
+
+
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
@@ -82,6 +86,17 @@ export class ReportComponent implements OnInit {
           console.log(expenses);
           this.expenses = expenses;
        }) 
+
+  }
+
+
+  viewExpense(expense: Expense):void{
+    
+  }
+  editExpense(expense: Expense):void{
+
+  }
+  deleteExpense(expense: Expense):void{
 
   }
 

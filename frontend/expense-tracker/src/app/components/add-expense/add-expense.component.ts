@@ -93,6 +93,7 @@ export class AddExpenseComponent implements OnInit {
 
 
     const newExpense: Expense = {
+      id: 0,
       username: this.user.username,
       date: this.date,
       categoryId: this.categoryID,

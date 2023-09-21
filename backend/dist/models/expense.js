@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require('mongoose');
 // Define the Expense schema
 const expenseSchema = new mongoose.Schema({
+    id: Number,
     username: String,
     date: {
         type: Date, required: true

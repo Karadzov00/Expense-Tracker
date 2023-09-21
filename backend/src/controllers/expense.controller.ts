@@ -18,6 +18,7 @@ export class ExpenseController{
 
     addExpense = async (req: express.Request, res: express.Response)=>{
         let newExpense = new Expense({
+            id: 0, 
             username: req.body.expense.username,
             date: req.body.expense.date,
             categoryId: req.body.expense.categoryId,
@@ -28,7 +29,11 @@ export class ExpenseController{
             attachment: req.body.expense.attachment
         })
 
+
+
         try {
+            const count = await Expense.countDocuments({});
+            newExpense.id = count+1; 
             const expense = await newExpense.save();
             res.json({"message": "Expense added"})
         } catch (error) {
