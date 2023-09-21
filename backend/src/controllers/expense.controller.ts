@@ -50,9 +50,6 @@ export class ExpenseController{
         const date1AsDate = new Date(date1);
         const date2AsDate = new Date(date2);
 
-        console.log(date1);
-        console.log(date2);
-        console.log(username);
         try {
             // Find expenses that match the criteria
             const expenses = await Expense.find({

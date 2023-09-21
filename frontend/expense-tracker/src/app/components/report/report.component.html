@@ -55,6 +55,37 @@
         </div>
         
       </div>
+
+      <div class="container mt-4">
+        <h2>Expense Details</h2>
+        <div class="table-responsive">
+          <table class="table table-light table-striped table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category ID</th>
+                <th>Amount</th>
+                <th>Currency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Use Angular ngFor to loop through the list of expenses and display each one -->
+              <tr *ngFor="let expense of expenses">
+                <td>{{ expense.date | date: 'yyyy-MM-dd' }}</td>
+                <td>{{ expense.description }}</td>
+                <td>{{ expense.categoryId }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.currency }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      
+
+
     </div>
   </div>
   

@@ -47,9 +47,6 @@ class ExpenseController {
             // For example, you can parse them into Date objects if needed
             const date1AsDate = new Date(date1);
             const date2AsDate = new Date(date2);
-            console.log(date1);
-            console.log(date2);
-            console.log(username);
             try {
                 // Find expenses that match the criteria
                 const expenses = await expense_1.default.find({
