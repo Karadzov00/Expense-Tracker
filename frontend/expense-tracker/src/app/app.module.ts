@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
+import { ReportComponent } from './components/report/report.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
     HomepageComponent,
     DashboardComponent,
     ChangePasswordComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    ReportComponent
     
   ],
   imports: [

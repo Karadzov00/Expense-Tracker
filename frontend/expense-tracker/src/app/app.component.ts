@@ -52,4 +52,9 @@ export class AppComponent {
     this.router.navigate(['addExpense']);
   }
 
+  routerReport(){
+    this.router.navigate(['report']);
+
+  }
+
 }

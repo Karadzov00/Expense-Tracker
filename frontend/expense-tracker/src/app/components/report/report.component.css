@@ -1,0 +1,22 @@
+.custom-box {
+    border: 2px solid rgb(92, 158, 245); /* Add borders to the div */
+    padding: 0; /* Remove padding inside the div */
+    background-color: white; /* Set background color for the div */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    margin: 0; /* Remove margin to the outer div */
+    border-radius: 3px; /* Remove border radius */
+  }
+  
+  .box-heading {
+    background-color: rgb(92, 158, 245); /* Set light blue background for the heading */
+    padding: 10px; /* Add padding to the heading */
+    border-bottom: 2px solid #ccc; /* Add a border at the bottom of the heading */
+    margin: 0; /* Remove margin for the heading */
+    border-radius: 0; /* Remove border radius for the heading */
+  }
+
+#button{
+    height: 10px;
+    margin-top: 80px;
+}
+  

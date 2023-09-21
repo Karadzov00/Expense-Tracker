@@ -1,0 +1,59 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div>
+        <p class="fs-2 mb-5 mt-3">Report of your expenses</p>
+        <div class="custom-box">
+          <h2 class="box-heading text-white bg-lightblue">Show Report</h2>
+          <div class="row justify-content-center"> <!-- Center the options -->
+            <div class="col-md-2 mt-3 ms-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption1" value="option1">
+                <label class="form-check-label" for="radioOption1">
+                  Option 1
+                </label>
+              </div>
+            </div>
+            <div class="col-md-5 mt-3 ms-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption2" value="option2">
+                <label class="form-check-label" for="radioOption2">
+                  Option 2
+                </label>
+              </div>
+              <div class="row m-2">
+                <div class="col">
+                  <div class="form-group">
+                    <input type="text" class="form-control" [matDatepicker]="picker1" [(ngModel)]="date1">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input type="text" class="form-control" [matDatepicker]="picker2" [(ngModel)]="date2">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 mt-3 ms-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radioOption3" value="option3">
+                <label class="form-check-label" for="radioOption3">
+                  Option 3
+                </label>
+              </div>
+            </div>
+                  <!-- New row for the submit button -->
+            <div class="row col-2 col-md-2 justify-content-end " id="button">
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
