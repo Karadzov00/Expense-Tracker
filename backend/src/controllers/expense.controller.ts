@@ -70,4 +70,15 @@ export class ExpenseController{
 
     }
 
+    deleteExpense = async (req: express.Request, res: express.Response)=>{
+        const id = req.params.id;
+        try {
+            const deletedExpense = await Expense.findOneAndDelete({ "id": id });
+            res.json({"message": "Expense with id "+id+ " deleted"});
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    }
+
 }

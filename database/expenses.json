@@ -23,6 +23,23 @@
       "description": "Gas for the car",
       "payment_method": "Debit Card"
       
+    },
+    {
+      "_id": {
+        "$oid": "650ca9307f0eb03cce261a8f"
+      },
+      "id": 5,
+      "username": "karadzov",
+      "date": {
+        "$date": "2023-08-15T22:00:00.000Z"
+      },
+      "categoryId": 9,
+      "amount": 2500,
+      "currency": "RSD",
+      "description": "new springfield shorts",
+      "payment_method": "Debit card",
+      "__v": 0
     }
+
   ]
   

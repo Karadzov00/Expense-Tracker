@@ -63,6 +63,17 @@ class ExpenseController {
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         };
+        this.deleteExpense = async (req, res) => {
+            const id = req.params.id;
+            try {
+                const deletedExpense = await expense_1.default.findOneAndDelete({ "id": id });
+                res.json({ "message": "Expense with id " + id + " deleted" });
+            }
+            catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        };
     }
 }
 exports.ExpenseController = ExpenseController;

@@ -36,4 +36,8 @@ export class ExpenseService {
     return this.http.get(`${this.uri}/expenses/fetchExpensesByPeriod`, { params });
 
   }
+
+  deleteExpense(id: number){
+    return this.http.delete(`${this.uri}/expenses/deleteExpense/${id}`);
+  }
 }

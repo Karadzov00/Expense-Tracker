@@ -9,5 +9,6 @@ const expenseRouter = express_1.default.Router();
 expenseRouter.route('/fetchAllCategories').get((req, res) => new expense_controller_1.ExpenseController().fetchAllCategories(req, res));
 expenseRouter.route('/fetchExpensesByPeriod').get((req, res) => new expense_controller_1.ExpenseController().fetchExpensesByPeriod(req, res));
 expenseRouter.route('/addExpense').post((req, res) => new expense_controller_1.ExpenseController().addExpense(req, res));
+expenseRouter.route('/deleteExpense/:id').delete((req, res) => { new expense_controller_1.ExpenseController().deleteExpense(req, res); });
 exports.default = expenseRouter;
 //# sourceMappingURL=expense.routes.js.map

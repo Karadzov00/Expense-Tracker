@@ -94,8 +94,8 @@
               </tr>
             </tbody>
           </table>
-          <div *ngIf="showTotal">
-            <h3>Total spending by currency:</h3>
+          <div *ngIf="showTotal" class="mt-2">
+            <h3 class="text-decoration-underline">Total spending by currency:</h3>
             <ul>
               <li *ngFor="let currency of getCurrencies(currencySums)">
                 {{ currency }}: {{ currencySums[currency] | currency:'':'symbol' }}

@@ -112,13 +112,17 @@ export class ReportComponent implements OnInit {
   }
 
   viewExpense(expense: Expense):void{
-    
+    localStorage.setItem('selectedExpense', JSON.stringify(expense)); 
+    this.router.navigate(['expenseDetails']);
   }
+
   editExpense(expense: Expense):void{
 
   }
   deleteExpense(expense: Expense):void{
-
+    this.expenseService.deleteExpense(expense.id).subscribe((resp:String)=>{
+      alert(resp['message']);
+    })
   }
 
 }
