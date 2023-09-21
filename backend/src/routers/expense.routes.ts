@@ -16,6 +16,10 @@ expenseRouter.route('/addExpense').post(
     (req, res) => new ExpenseController().addExpense(req, res)
 )
 
+expenseRouter.route('/updateExpense').put(
+    (req, res) => new ExpenseController().updateExpense(req, res)
+)
+
 expenseRouter.route('/deleteExpense/:id').delete(
     (req, res) => {new ExpenseController().deleteExpense(req, res) }
 )

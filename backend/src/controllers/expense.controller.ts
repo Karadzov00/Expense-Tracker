@@ -81,4 +81,30 @@ export class ExpenseController{
         }
     }
 
+    updateExpense = async (req: express.Request, res: express.Response)=>{
+        const expenseId = req.body.expense.id;
+        const updatedExpense = {
+            id: expenseId,
+            username: req.body.expense.username,
+            date: req.body.expense.date,
+            categoryId: req.body.expense.categoryId,
+            amount: req.body.expense.amount,
+            currency: req.body.expense.currency,
+            description: req.body.expense.description,
+            payment_method: req.body.expense.payment_method,
+            attachment: req.body.expense.attachment
+        };
+
+        try {
+            const updated = await Expense.findOneAndUpdate({ id: expenseId }, updatedExpense, { new: true });
+            res.json({"message": "Expense updated successfully!"});
+            
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+
+        }
+
+
 }

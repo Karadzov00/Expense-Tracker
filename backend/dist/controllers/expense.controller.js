@@ -74,6 +74,28 @@ class ExpenseController {
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         };
+        this.updateExpense = async (req, res) => {
+            const expenseId = req.body.expense.id;
+            const updatedExpense = {
+                id: expenseId,
+                username: req.body.expense.username,
+                date: req.body.expense.date,
+                categoryId: req.body.expense.categoryId,
+                amount: req.body.expense.amount,
+                currency: req.body.expense.currency,
+                description: req.body.expense.description,
+                payment_method: req.body.expense.payment_method,
+                attachment: req.body.expense.attachment
+            };
+            try {
+                const updated = await expense_1.default.findOneAndUpdate({ id: expenseId }, updatedExpense, { new: true });
+                res.json({ "message": "Expense updated successfully!" });
+            }
+            catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        };
     }
 }
 exports.ExpenseController = ExpenseController;
