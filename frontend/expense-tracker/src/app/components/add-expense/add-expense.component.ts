@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Category } from 'src/app/models/category';
 import { ExpenseService } from 'src/app/services/expense.service';
+import { Expense } from 'src/app/models/expense';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class AddExpenseComponent implements OnInit {
   constructor(private router:Router, private userService:UserService,
     private expenseService: ExpenseService) { }
 
-  date = new FormControl(new Date());
+  date: Date;
   serializedDate = new FormControl(new Date().toISOString());
 
   ngOnInit(): void {
@@ -74,7 +75,35 @@ export class AddExpenseComponent implements OnInit {
     console.log(this.category);
     console.log(this.description);
     // console.log(this.image);
+
+    // username: string;
+    // date: Date;
+    // categoryId: number;
+    // amount: number;
+    // currency: string;
+    // description: string;
+    // payment_method: string;
+    // attachment: string;
     
+    const foundCategory = this.allCategories.find(category => category.name === this.category);
+
+    if (foundCategory) {
+      this.categoryID = foundCategory.id;
+    } 
+
+
+    const newExpense: Expense = {
+      username: this.user.username,
+      date: this.date,
+      categoryId: this.categoryID,
+      amount: this.amount,
+      currency: this.currency,
+      description: this.description,
+      payment_method: this.paymentType,
+      attachment: this.image
+    }
+
+    console.log(newExpense);
   }
 
 }
