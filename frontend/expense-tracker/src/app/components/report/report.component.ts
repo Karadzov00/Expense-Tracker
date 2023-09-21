@@ -28,7 +28,8 @@ export class ReportComponent implements OnInit {
   expenseSum: number; 
   currencySums: CurrencySums = {};
   showTotal: boolean = false;
-
+  selectedSortField: string = 'date'; // Default sort field
+  selectedSortOrder: string = 'asc'; // Default sort order
 
   constructor(private router:Router, private userService:UserService,
     private expenseService: ExpenseService) { }
@@ -117,12 +118,46 @@ export class ReportComponent implements OnInit {
   }
 
   editExpense(expense: Expense):void{
-
+    localStorage.setItem('selectedExpense', JSON.stringify(expense)); 
+    this.router.navigate(['editExpense']);
   }
   deleteExpense(expense: Expense):void{
     this.expenseService.deleteExpense(expense.id).subscribe((resp:String)=>{
       alert(resp['message']);
     })
+  }
+
+ // Sort the 'expenses' array based on the selected field and order
+ sortBy(field: string, order: string): void {
+  this.expenses.sort((a, b) => {
+    let comparison = 0;
+
+    // Implement custom sorting logic based on the selected field
+    switch (field) {
+      case 'date':
+        const date1 = new Date(a.date);
+        const date2 = new Date(b.date);
+        comparison = date1.getTime() - date2.getTime();
+        break;
+      case 'description':
+        comparison = a.description.localeCompare(b.description);
+        break;
+      case 'category':
+        comparison = a.categoryId-b.categoryId;
+        break;
+      case 'amount':
+        comparison = a.amount - b.amount;
+        break;
+      case 'currency':
+        comparison = a.currency.localeCompare(b.currency);
+        break;
+      default:
+        break;
+    }
+
+    // Apply the sorting order (ascending or descending)
+    return order === 'asc' ? comparison : -comparison;
+    });
   }
 
 }

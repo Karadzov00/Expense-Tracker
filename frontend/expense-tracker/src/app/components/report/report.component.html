@@ -59,6 +59,28 @@
       <div class="container mt-4">
         <h2>Expense Details</h2>
 
+          <!-- Sort options in a single row -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <!-- Sort by dropdown -->
+            <label for="sortBy">Sort by:</label>
+            <select class="form-select" id="sortBy" [(ngModel)]="selectedSortField" (change)="sortBy(selectedSortField, selectedSortOrder)">
+              <option value="date">Date</option>
+              <option value="description">Description</option>
+              <option value="category">Category</option>
+              <option value="amount">Amount</option>
+              <option value="currency">Currency</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Sort order dropdown -->
+            <label for="sortOrder">Sort order:</label>
+            <select class="form-select" id="sortOrder" [(ngModel)]="selectedSortOrder" (change)="sortBy(selectedSortField, selectedSortOrder)">
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </div>
+        </div>
         
         <div class="table-responsive">
           <table class="table table-light table-striped table-hover">
@@ -105,8 +127,6 @@
         </div>
       </div>
       
-      
-
 
     </div>
   </div>
