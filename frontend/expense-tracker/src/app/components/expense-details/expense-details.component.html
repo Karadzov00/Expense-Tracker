@@ -1,1 +1,17 @@
-<p>expense-details works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-6 col-md-5 mt-3 mb-2">
+            <div class="card" style="width: 18rem;">
+                <img [src]="expense.attachment" class="card-img-top" alt="..."
+                *ngIf="expense.attachment">
+                <div class="card-body">
+                    <h5 class="card-title">Expense Details</h5>
+                    <div *ngFor="let field of expenseFields" class="mt-3">
+                        <h6 class="card-subtitle mb-1 text-body-secondary">{{ field.label }}</h6>
+                        <p class="card-text">{{ field.value }}</p>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
