@@ -1,7 +1,19 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-8 col-md-8">
-
+            <div>
+                <div class=" col-3 col-md-3">
+                    <label for="currencySelector" class="form-label">Select Currency:</label>
+                    <select id="currencySelector" class="form-select col-3 col-md-3" [(ngModel)]="selectedCurrency">
+                      <option value="USD"
+                      (click)="calculateExpenses()">USD</option>
+                      <option value="EUR"
+                      (click)="calculateExpenses()">EUR</option>
+                      <option value="RSD"
+                      (click)="calculateExpenses()">RSD</option>
+                    </select>
+                  </div>                                 
+            </div>
             <div style="display: block">
                 <canvas baseChart
                 [datasets]="lineChartData"

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataset, ChartType, ChartOptions } from 'chart.js';
+import { CurrencyService } from 'src/app/services/currency.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,9 +18,21 @@ export class DashboardComponent implements OnInit {
     responsive: true,
   };
 
-  constructor() { }
+  selectedCurrency: String; 
+
+  constructor(private currencyService: CurrencyService) {}
 
   ngOnInit(): void {
+    this.currencyService.getExchangeRates().subscribe((data: any) => {
+      // Handle the currency exchange rate data here
+      console.log(data);
+      console.log(data["eur"]["rsd"]);
+    });
+  }
+
+
+  calculateExpenses():void{
+    console.log(this.selectedCurrency);
   }
 
 }
