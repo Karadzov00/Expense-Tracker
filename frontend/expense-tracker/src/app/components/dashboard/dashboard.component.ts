@@ -5,6 +5,7 @@ import { Expense } from 'src/app/models/expense';
 import { User } from 'src/app/models/user';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { ExpenseService } from 'src/app/services/expense.service';
+import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts module
 
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -24,6 +25,7 @@ export class DashboardComponent implements OnInit {
     responsive: true,
   };
 
+
   selectedCurrency: String= "EUR"; 
   currencyRates: any; 
   allCategories: Category[];
@@ -31,7 +33,8 @@ export class DashboardComponent implements OnInit {
   allExpenses: Expense[];
   expensesInPastSixMonths: Expense[];
   sumsByMonth: { [key: string]: number } = {};
-
+  //data for pie chart 
+  single: any[] = []; // Replace this with your data
 
   constructor(private currencyService: CurrencyService, private expenseService: ExpenseService) {}
 
@@ -75,10 +78,12 @@ export class DashboardComponent implements OnInit {
 
         // this.calculateEUR();
         this.expenseSumsByMonth();
+        this.calculateCategoryExpenses(this.allExpenses);
         console.log(this.sumsByMonth);
       })
     
   }
+
 
 
   convertAmount(expense: Expense):number{
@@ -145,6 +150,26 @@ export class DashboardComponent implements OnInit {
     this.lineChartLabels = months;
 
 
+  }
+
+
+  
+  // Function to calculate expenses by category
+  calculateCategoryExpenses(expenses: Expense[]): void {
+    const categorySums: { name: string, value: number }[] = [];
+
+    for (const expense of expenses) {
+      const categoryName = this.allCategories[expense.categoryId].name;
+      const index = categorySums.findIndex(item => item.name === categoryName);
+
+      if (index === -1) {
+        categorySums.push({ name: categoryName, value: expense.amount });
+      } else {
+        categorySums[index].value += expense.amount;
+      }
+    }
+
+    this.single = categorySums.map(item => ({ name: item.name, value: item.value }));
   }
 
 

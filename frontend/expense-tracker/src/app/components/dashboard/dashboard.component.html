@@ -44,6 +44,18 @@
                 </canvas>
               </div>
             </div>
+            <div class="col-8 col-md-8">
+                <div class="container">
+                    <ngx-charts-pie-chart
+                      [results]="single"
+                      [view]="[500, 300]"
+                      [legend]="true"
+                      [labels]="true"
+                      [explodeSlices]="false"
+                    ></ngx-charts-pie-chart>
+                </div>
+           
+            </div>
           </div>
         </div>
       </main>

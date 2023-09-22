@@ -35,7 +35,7 @@ import { ReportComponent } from './components/report/report.component';
 import { ExpenseDetailsComponent } from './components/expense-details/expense-details.component';
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 import { NgChartsModule } from 'ng2-charts';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts module
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +75,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
