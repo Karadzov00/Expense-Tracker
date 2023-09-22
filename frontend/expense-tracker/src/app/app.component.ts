@@ -57,4 +57,9 @@ export class AppComponent {
 
   }
 
+  routerDashboard(){
+    this.router.navigate(['dashboard']);
+
+  }
+
 }
