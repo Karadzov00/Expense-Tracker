@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c3"
+  },
+  "id": 1,
+  "name": "Food"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c4"
+  },
+  "id": 2,
+  "name": "Transportation"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c5"
+  },
+  "id": 3,
+  "name": "Rent"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c6"
+  },
+  "id": 4,
+  "name": "Bills"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c7"
+  },
+  "id": 5,
+  "name": "Utilities"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c8"
+  },
+  "id": 6,
+  "name": "Health and Wellness"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697c9"
+  },
+  "id": 7,
+  "name": "Dining Out"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697ca"
+  },
+  "id": 8,
+  "name": "Entertainment"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697cb"
+  },
+  "id": 9,
+  "name": "Shopping"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697cc"
+  },
+  "id": 10,
+  "name": "Travel"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697cd"
+  },
+  "id": 11,
+  "name": "Education"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697ce"
+  },
+  "id": 12,
+  "name": "Insurance"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697cf"
+  },
+  "id": 13,
+  "name": "Personal Care"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697d0"
+  },
+  "id": 14,
+  "name": "Home Maintenance"
+},
+{
+  "_id": {
+    "$oid": "650b407163f3787cfee697d1"
+  },
+  "id": 15,
+  "name": "Gifts"
+}]

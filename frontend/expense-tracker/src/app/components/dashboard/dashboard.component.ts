@@ -159,11 +159,13 @@ export class DashboardComponent implements OnInit {
     const categorySums: { name: string, value: number }[] = [];
 
     for (const expense of expenses) {
-      const categoryName = this.allCategories[expense.categoryId].name;
+      const categoryName = this.allCategories[expense.categoryId-1].name;
       const index = categorySums.findIndex(item => item.name === categoryName);
+      var convertedAmount = this.convertAmount(expense);
+      convertedAmount = parseFloat(convertedAmount.toFixed(2));
 
       if (index === -1) {
-        categorySums.push({ name: categoryName, value: expense.amount });
+        categorySums.push({ name: categoryName, value: convertedAmount });
       } else {
         categorySums[index].value += expense.amount;
       }
