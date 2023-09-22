@@ -105,6 +105,12 @@ export class DashboardComponent implements OnInit {
   expenseSumsByMonth():void{
     this.sumsByMonth = {};
 
+    for (let i = 6; i > 0; i--) {
+      const currentDate = new Date();
+      currentDate.setMonth(currentDate.getMonth() - i);
+      const monthKey = `${currentDate.getFullYear()}-${monthNames[currentDate.getMonth()]}`;
+      this.sumsByMonth[monthKey] = 0;
+    }
     //sort expenses by date
     this.expensesInPastSixMonths.sort((a, b) => {
       const dateA = new Date(a.date);
@@ -141,15 +147,6 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  convertToEUR(amount: number):number{
-    return 0;
-  }
-  convertToRSD(amount: number):number{
-    return 0;
-  }
-  convertToUSD(amount: number):number{
-    return 0;
-  }
 
 }
 
