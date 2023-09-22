@@ -6,6 +6,8 @@ import { User } from 'src/app/models/user';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { ExpenseService } from 'src/app/services/expense.service';
 
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -22,19 +24,22 @@ export class DashboardComponent implements OnInit {
     responsive: true,
   };
 
-  selectedCurrency: String; 
+  selectedCurrency: String= "EUR"; 
   currencyRates: any; 
   allCategories: Category[];
   user: User;
   allExpenses: Expense[];
   expensesInPastSixMonths: Expense[];
+  sumsByMonth: { [key: string]: number } = {};
+
+
   constructor(private currencyService: CurrencyService, private expenseService: ExpenseService) {}
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
     this.currencyService.getExchangeRates().subscribe((data: any) => {
       // Handle the currency exchange rate data here
-      // console.log(data);
+      console.log(data);
       // console.log(data["eur"]["rsd"]);
       this.currencyRates = data;
       console.log(this.currencyRates["eur"]["rsd"]);
@@ -67,38 +72,86 @@ export class DashboardComponent implements OnInit {
           // Check if the expense date is within the past six months
           return expenseDate >= sixMonthsAgo && expenseDate <= currentDate;
         });
-        
-        console.log(this.allExpenses);
-        console.log(this.expensesInPastSixMonths);
+
+        // this.calculateEUR();
+        this.expenseSumsByMonth();
+        console.log(this.sumsByMonth);
       })
     
   }
 
 
-  calculateExpenses():void{
+  convertAmount(expense: Expense):number{
     console.log(this.selectedCurrency);
+    //convert to eur 
+    //convert from eur to selected currency 
+    var amount: number = expense.amount;
+    var currency: string = expense.currency.toLowerCase();
+    console.log("amount:" + amount);
+    amount = amount/this.currencyRates["eur"][currency];
+    console.log("amount in euros:" + amount);
     switch(this.selectedCurrency){
       case "EUR":
-        break;
+        return amount*this.currencyRates["eur"]["eur"];
       case "RSD":
-        break;
+        return amount*this.currencyRates["eur"]["rsd"];
       case "USD":
-        break;
-      default:
-        console.log("Error!");
+        return amount*this.currencyRates["eur"]["usd"];
+
     }
+    return 0;
   }
 
-  calclateUSD(){
+  expenseSumsByMonth():void{
+    this.sumsByMonth = {};
+
+    //sort expenses by date
+    this.expensesInPastSixMonths.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA.getTime() - dateB.getTime();
+    });
+    
+
+    this.expensesInPastSixMonths.forEach((expense) => {
+      const expenseDate = new Date(expense.date);
+      const monthKey = `${expenseDate.getFullYear()}-${monthNames[expenseDate.getMonth()]}`;
+      console.log(monthKey);
+      if (!this.sumsByMonth[monthKey]) {
+        this.sumsByMonth[monthKey] = 0;
+      }
+      var convertedAmount = this.convertAmount(expense);
+      convertedAmount = parseFloat(convertedAmount.toFixed(2));
+      console.log("converted amount: "+convertedAmount);
+      this.sumsByMonth[monthKey] += convertedAmount;
+    });
+    console.log(this.sumsByMonth);
+    // Convert the sums object into an array
+    const sumsArray = Object.values(this.sumsByMonth);
+
+    // Define the dataset
+    this.lineChartData = [{ data: sumsArray, label: 'Total Expenses' }];
+
+    // Get the list of months (labels)
+    const months = Object.keys(this.sumsByMonth);
+
+    // Define the labels for the chart
+    this.lineChartLabels = months;
+
 
   }
 
-  calculateRSD(){
-
+  convertToEUR(amount: number):number{
+    return 0;
   }
-
-  calculateEUR(){
-
+  convertToRSD(amount: number):number{
+    return 0;
+  }
+  convertToUSD(amount: number):number{
+    return 0;
   }
 
 }
+
+
+

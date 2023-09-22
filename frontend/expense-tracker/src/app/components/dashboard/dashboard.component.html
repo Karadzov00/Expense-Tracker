@@ -4,7 +4,7 @@
             <div>
                 <div class=" col-3 col-md-3">
                     <label for="currencySelector" class="form-label">Select Currency:</label>
-                    <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="calculateExpenses()">
+                    <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="expenseSumsByMonth()">
                       <option value="USD">USD</option>
                       <option value="EUR">EUR</option>
                       <option value="RSD">RSD</option>
