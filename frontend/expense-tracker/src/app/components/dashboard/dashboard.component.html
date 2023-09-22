@@ -1,26 +1,52 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-8 col-md-8">
-            <div>
-                <div class=" col-3 col-md-3">
-                    <label for="currencySelector" class="form-label">Select Currency:</label>
-                    <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="expenseSumsByMonth()">
-                      <option value="USD">USD</option>
-                      <option value="EUR">EUR</option>
-                      <option value="RSD">RSD</option>
-                    </select>
-                </div>                                 
-            </div>
-            <div style="display: block">
-                <canvas baseChart
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels"
-                [options]="lineChartOptions"
-                [type]="lineChartType">
-                </canvas>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar" style="height: 100vh;">
+        <div class="position-sticky">
+          <ul class="nav flex-column">
+            <!-- Link 1 -->
+            <li class="nav-item" class="mt-5">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <!-- Link 2 -->
+            <li class="nav-item" class="mt-3">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <!-- Link 3 -->
+            <li class="nav-item" class="mt-3">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+          </ul>
         </div>
-        
+      </nav>
+  
+      <!-- Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="col-8 col-md-8">
+              <div>
+                <div class="col-3 col-md-3">
+                  <label for="currencySelector" class="form-label">Select Currency:</label>
+                  <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="expenseSumsByMonth()">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="RSD">RSD</option>
+                  </select>
+                </div>
+              </div>
+              <div style="display: block">
+                <canvas baseChart
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [type]="lineChartType">
+                </canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-
-</div>
+  </div>
+  

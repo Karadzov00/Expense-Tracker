@@ -1,56 +1,57 @@
 
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" id="nav">Expense Tracker</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" 
-            role="button" (click)="routerDashboard()"
-           >Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" 
-            role="button" (click)="routerReport()" >Report</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-danger" aria-current="page" 
-            role="button" (click)="routerAddExpense()" 
-            >Add Expense</a>
-          </li>
-        </ul>
-        <div class="d-flex align-items-center" id="login">
-          <a class="navbar-brand" *ngIf="!user" >
-            <img src="assets/no_user_image.png" alt="" width="30" height="32" id="avatar">
-          </a>
-          <a class="navbar-brand"  *ngIf="user">
-            <img [src]="user.profile_picture" alt="" width="30" height="32" id="avatar">
-          </a>
-          <form class=" mr-2">
-            <button class="btn btn-outline-success" type="submit" 
-            *ngIf="!user"  role="button" (click)="routerLogin()"
-            >Login</button>
-          </form>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
-          [disabled]="!user">
-            <span class="navbar-toggler-icon"></span> <!-- Hamburger icon -->
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" role="button"
-              (click)="changePassword()">Change Password</a></li>
-            <li><a class="dropdown-item" role="button"
-              (click)="logout()">Logout</a></li>
-          </ul>
-        </div>
-        
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" id="nav">Expense Tracker</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" 
+          role="button" (click)="routerDashboard()"
+         >Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" 
+          role="button" (click)="routerReport()" >Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active " aria-current="page" 
+          role="button" (click)="routerAddExpense()" 
+          >Add Expense</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center" id="login">
+        <a class="navbar-brand" *ngIf="!user" >
+          <img src="assets/no_user_image.png" alt="" width="30" height="32" id="avatar">
+        </a>
+        <a class="navbar-brand"  *ngIf="user">
+          <img [src]="user.profile_picture" alt="" width="30" height="32" id="avatar">
+        </a>
+        <form class=" mr-2">
+          <button class="btn btn-outline-success" type="submit" 
+          *ngIf="!user"  role="button" (click)="routerLogin()"
+          >Login</button>
+        </form>
       </div>
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+        [disabled]="!user">
+          <span class="navbar-toggler-icon"></span> <!-- Hamburger icon -->
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" role="button"
+            (click)="changePassword()">Change Password</a></li>
+          <li><a class="dropdown-item" role="button"
+            (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+      
     </div>
-  </nav>
+  </div>
+</nav>
+
 
 <router-outlet></router-outlet>
