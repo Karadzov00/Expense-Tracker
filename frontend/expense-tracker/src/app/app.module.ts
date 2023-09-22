@@ -34,6 +34,7 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
 import { ReportComponent } from './components/report/report.component';
 import { ExpenseDetailsComponent } from './components/expense-details/expense-details.component';
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { EditExpenseComponent } from './components/edit-expense/edit-expense.com
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

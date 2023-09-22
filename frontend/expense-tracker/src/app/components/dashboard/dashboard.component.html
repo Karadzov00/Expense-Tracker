@@ -1,1 +1,17 @@
-<p>Successfully logged in!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-8 col-md-8">
+
+            <div style="display: block">
+                <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [type]="lineChartType">
+                </canvas>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
