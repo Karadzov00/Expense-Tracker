@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExpenseController = void 0;
 const category_1 = __importDefault(require("../models/category"));
 const expense_1 = __importDefault(require("../models/expense"));
+const income_1 = __importDefault(require("../models/income"));
 class ExpenseController {
     constructor() {
         this.fetchAllCategories = async (req, res) => {
@@ -34,6 +35,26 @@ class ExpenseController {
                 newExpense.id = count + 1;
                 const expense = await newExpense.save();
                 res.json({ "message": "Expense added" });
+            }
+            catch (error) {
+                console.log(error);
+                res.status(400).json({ "message": "error" });
+            }
+        };
+        this.addIncome = async (req, res) => {
+            let newIncome = new income_1.default({
+                id: 0,
+                username: req.body.income.username,
+                date: req.body.income.date,
+                source: req.body.income.source,
+                amount: req.body.income.amount,
+                currency: req.body.income.currency,
+            });
+            try {
+                const count = await income_1.default.countDocuments({});
+                newIncome.id = count + 1;
+                const expense = await newIncome.save();
+                res.json({ "message": "Income added" });
             }
             catch (error) {
                 console.log(error);

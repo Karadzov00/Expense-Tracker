@@ -14,9 +14,48 @@
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
                 </div>
-                <div class="input-group mb-3 mt-2">
-                
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Amount:</span>
+                    <input type="text" class="form-control flex-grow-1" aria-label="Amount (to the nearest dollar)"
+                    [(ngModel)]="amount">
+                    <select class="form-select flex-shrink-1" id="currencySelect" [(ngModel)]="currency">
+                        <option value="USD">$</option>
+                        <option value="EUR">€</option>
+                        <option value="RSD">RSD</option>
+                    </select>
                 </div>
+
+                <div class="d-flex mb-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Payment:</span>
+                        </div>
+                        <div class="dropdown col-md-2">
+                            <button class="btn  dropdown-toggle col" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             {{source}}
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item"
+                                (click)="selectPaymentType('Salary')">
+                                Salary</a></li>
+                              <li><a class="dropdown-item"
+                                (click)="selectPaymentType('Gift')">
+                                Gift</a></li>
+                              <li><a class="dropdown-item"
+                                (click)="selectPaymentType('Other')">
+                                Other</a></li>
+        
+                            </ul>
+                          </div>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 justify-content-between mt-4">
+                    <button type="submit " class="btn btn-danger col-4 col-md-4"
+                    (click)="addIncome()"
+                    >Submit</button>
+                </div>
+                
             </mat-card-content>
           </mat-card>
           

@@ -13,6 +13,7 @@
 
 export class Income{
     id:number;
+    username: string;
     date:Date;
     source:string;
     amount:number;

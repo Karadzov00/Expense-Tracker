@@ -9,3 +9,10 @@
   #currencySelect{
     width:20px
   }
+
+/* styles.css or styles.scss */
+.custom-card {
+  background-color: RGB(230, 230, 250); /* Dark grey background color */
+  color: #000000; /* Text color */
+  border-radius: 10px; /* Rounded corners */
+}

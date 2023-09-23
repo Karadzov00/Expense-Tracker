@@ -3,7 +3,7 @@ import { Request, Response } from "express-serve-static-core";
 import { ParsedQs } from "qs";
 import category from "../models/category";
 import Expense from "../models/expense";
-
+import Income from "../models/income";
 
 export class ExpenseController{
     fetchAllCategories = async (req: express.Request, res: express.Response)=>{
@@ -27,7 +27,7 @@ export class ExpenseController{
             description: req.body.expense.description,
             payment_method: req.body.expense.payment_method,
             attachment: req.body.expense.attachment
-        })
+        });
 
 
 
@@ -40,6 +40,27 @@ export class ExpenseController{
             console.log(error);
             res.status(400).json({"message": "error"})
         }
+    }
+
+    addIncome = async (req: express.Request, res: express.Response)=>{
+        let newIncome = new Income({
+            id:0,
+            username: req.body.income.username,
+            date: req.body.income.date,
+            source: req.body.income.source,
+            amount: req.body.income.amount,
+            currency: req.body.income.currency,
+        });
+        try {
+            const count = await Income.countDocuments({});
+            newIncome.id = count+1; 
+            const expense = await newIncome.save();
+            res.json({"message": "Income added"})
+        } catch (error) {
+            console.log(error);
+            res.status(400).json({"message": "error"})
+        }
+
     }
 
     fetchExpensesByPeriod = async (req: express.Request, res: express.Response)=>{

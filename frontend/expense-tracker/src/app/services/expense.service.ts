@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Expense } from '../models/expense';
+import { Income } from '../models/income';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,13 @@ export class ExpenseService {
       expense:expense
     }
     return this.http.post(`${this.uri}/expenses/addExpense`, data); 
+
+  }
+  addIncome(income: Income){
+    const data={
+      income:income
+    }
+    return this.http.post(`${this.uri}/expenses/addIncome`, data); 
 
   }
 

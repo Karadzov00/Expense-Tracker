@@ -1,6 +1,10 @@
 /* In your CSS file */
 .purple-card {
-    background-color: rgba(89, 52, 192, 0.637); /* Set the background color to purple */
+    background-color: RGB(173, 216, 230); /* Set the background color to purple */
     color: white; /* Set the text color to white or any contrasting color */
+  }
+
+  #currencySelect{
+    width:20px
   }
   

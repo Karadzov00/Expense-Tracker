@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // Define the Income schema
 const incomeSchema = new mongoose.Schema({
   id:Number,
+  username: String, 
   date: {
     type: Date,
   },
