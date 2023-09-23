@@ -35,7 +35,8 @@ import { ReportComponent } from './components/report/report.component';
 import { ExpenseDetailsComponent } from './components/expense-details/expense-details.component';
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 import { NgChartsModule } from 'ng2-charts';
-import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts module
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts mod
     AddExpenseComponent,
     ReportComponent,
     ExpenseDetailsComponent,
-    EditExpenseComponent
+    EditExpenseComponent,
     
   ],
   imports: [
@@ -76,7 +77,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts mod
     MatInputModule,
     MatDatepickerModule,
     NgChartsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

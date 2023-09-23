@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { ChartDataset, ChartType, ChartOptions } from 'chart.js';
 import { Category } from 'src/app/models/category';
 import { Expense } from 'src/app/models/expense';
@@ -6,6 +6,7 @@ import { User } from 'src/app/models/user';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts module
+import { Router } from '@angular/router';
 
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -36,7 +37,7 @@ export class DashboardComponent implements OnInit {
   //data for pie chart 
   single: any[] = []; // Replace this with your data
 
-  constructor(private currencyService: CurrencyService, private expenseService: ExpenseService) {}
+  constructor(private currencyService: CurrencyService, private expenseService: ExpenseService, private router:Router) {}
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
@@ -80,6 +81,7 @@ export class DashboardComponent implements OnInit {
         this.expenseSumsByMonth();
         this.calculateCategoryExpenses(this.allExpenses);
         console.log(this.sumsByMonth);
+        // expenseCarousel();
       })
     
   }
@@ -174,8 +176,28 @@ export class DashboardComponent implements OnInit {
     this.single = categorySums.map(item => ({ name: item.name, value: item.value }));
   }
 
+  // Function to get the last 3 expenses by date
+  getLast3Expenses(): Expense[] {
+    console.log(this.allExpenses[1].date)
+    return this.allExpenses
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      
+      
+      ) // Sort expenses by date in descending order
+      .slice(0, 3); // Get the first 3 expenses
+  }
 
+  getCategoryName(categoryId:number):string{
+    return this.allCategories[categoryId-1].name;
+  }
+
+  viewExpense(expense: Expense):void{
+    localStorage.setItem('selectedExpense', JSON.stringify(expense)); 
+    this.router.navigate(['expenseDetails']);
+  }
 }
+
+
 
 
 

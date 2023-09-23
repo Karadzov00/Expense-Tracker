@@ -22,7 +22,7 @@
   
       <!-- Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="container mt-5">
+        <div class="container mt-5 mb-5">
           <div class="row justify-content-center">
             <div class="col-8 col-md-8">
               <div>
@@ -44,6 +44,30 @@
                 </canvas>
               </div>
             </div>
+
+            <div class="col-8 col-md-8 mt-5 mb-5">
+                <div class="row">
+                    <div class="col" *ngFor="let expense of getLast3Expenses()">
+                      <mat-card class="example-card black-card">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title>{{ expense.description }}</mat-card-title>
+                          <mat-card-subtitle>{{ expense.date | date: 'mediumDate' }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <p><strong>Category:</strong> {{ getCategoryName(expense.categoryId) }}</p>
+                          <p><strong>Amount:</strong> {{ expense.amount }} {{ expense.currency }}</p>
+                          <p><strong>Payment Method:</strong> {{ expense.payment_method }}</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                          <button mat-button
+                          (click)="viewExpense(expense)">View Details</button>
+                        </mat-card-actions>
+                      </mat-card>
+                    </div>
+                  </div>
+            </div>
+            
             <div class="col-8 col-md-8 mt-4">
                 <div class="container">
                     <ngx-charts-pie-chart

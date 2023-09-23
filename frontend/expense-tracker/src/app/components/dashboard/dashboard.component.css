@@ -1,0 +1,7 @@
+.black-card {
+    background-color: rgba(76, 70, 160, 0.76); /* Set the background color to black */
+    color: white; /* Set the text color to white */
+    border-radius: 10px; /* Add rounded corners */
+    margin: 10px; /* Add some margin for spacing */
+  }
+  
