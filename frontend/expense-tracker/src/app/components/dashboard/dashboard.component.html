@@ -33,7 +33,7 @@
               <div>
                 <div class="col-3 col-md-3">
                   <label for="currencySelector" class="form-label">Select Currency:</label>
-                  <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="expenseSumsByMonth()">
+                  <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="expenseSumsByMonth(); calculateCurrentBudget()">
                     <option value="USD">USD</option>
                     <option value="EUR">EUR</option>
                     <option value="RSD">RSD</option>
@@ -48,6 +48,19 @@
                   [type]="lineChartType">
                 </canvas>
               </div>
+            </div>
+
+            <div class="col-5 col-md-5 mt-3">
+              <h1>Expenses/Incomes this month:</h1>
+              <ngx-charts-bar-vertical
+              [results]="barChartData"
+              [legend]="true"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              xAxisLabel="Month"
+              yAxisLabel="Amount"
+              ></ngx-charts-bar-vertical>
+            
             </div>
 
             <div class="col-8 col-md-8 mt-5 mb-5">

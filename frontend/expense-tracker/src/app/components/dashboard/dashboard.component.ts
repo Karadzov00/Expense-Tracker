@@ -39,7 +39,13 @@ export class DashboardComponent implements OnInit {
   //data for pie chart 
   single: any[] = []; // Replace this with your data
 
-  constructor(private currencyService: CurrencyService, private expenseService: ExpenseService, private router:Router) {}
+  //data for bar chart
+  barChartData: any[];
+  multi: any[];
+
+  constructor(private currencyService: CurrencyService, private expenseService: ExpenseService, private router:Router) {
+
+  }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('loggedUser')); 
@@ -93,6 +99,9 @@ export class DashboardComponent implements OnInit {
             this.allIncomes = incomes;
 
             console.log(this.calculateCurrentBudget());
+            console.log("expenses:");
+            console.log(this.sumsByMonth);
+            this.calculateBudgetCurrentMonth();
 
           });
       });
@@ -103,11 +112,33 @@ export class DashboardComponent implements OnInit {
 
 
   convertAmount(expense: Expense):number{
-    console.log(this.selectedCurrency);
+    // console.log(this.selectedCurrency);
     //convert to eur 
     //convert from eur to selected currency 
     var amount: number = expense.amount;
     var currency: string = expense.currency.toLowerCase();
+    // console.log("amount:" + amount);
+    amount = amount/this.currencyRates["eur"][currency];
+    // console.log("amount in euros:" + amount);
+    switch(this.selectedCurrency){
+      case "EUR":
+        return amount*this.currencyRates["eur"]["eur"];
+      case "RSD":
+        return amount*this.currencyRates["eur"]["rsd"];
+      case "USD":
+        return amount*this.currencyRates["eur"]["usd"];
+
+    }
+    return 0;
+  }
+
+  convertAmountIncome(income: Income):number{
+    console.log("selected currency income")
+    console.log(this.selectedCurrency);
+    //convert to eur 
+    //convert from eur to selected currency 
+    var amount: number = income.amount;
+    var currency: string = income.currency.toLowerCase();
     console.log("amount:" + amount);
     amount = amount/this.currencyRates["eur"][currency];
     console.log("amount in euros:" + amount);
@@ -231,6 +262,44 @@ export class DashboardComponent implements OnInit {
   
     return currentBudget;
   }
+
+  calculateBudgetCurrentMonth():void{
+    // Calculate total expenses and incomes for the current month
+    const monthKey = `${new Date().getFullYear()}-${monthNames[new Date().getMonth()]}`;
+
+    const totalExpenses = this.sumsByMonth[monthKey] || 0; // Replace with your actual data
+    const totalIncomes = this.calculateTotalIncomesForMonth(monthKey); // Implement this method
+
+    // Update the chart data with the calculated values
+    this.barChartData = [
+      {
+        'name': 'Expenses',
+        'value': totalExpenses
+      },
+      {
+        'name': 'Incomes',
+        'value': totalIncomes
+      }
+    ];
+  }
+
+    // Implement this method to calculate total incomes for the current month
+    calculateTotalIncomesForMonth(monthKey: string): number {
+      // Filter incomes for the current month and calculate the sum
+      const filteredIncomes = this.allIncomes.filter((income) => {
+        const incomeDate = new Date(income.date);
+        const incomeMonthKey = `${incomeDate.getFullYear()}-${monthNames[incomeDate.getMonth()]}`;
+        return incomeMonthKey === monthKey;
+      });
+  
+      const totalIncomes = filteredIncomes.reduce((sum, income) => {
+        const convertedAmount = this.convertAmountIncome(income);
+        // console.log(convertedAmount);
+        return sum + convertedAmount;
+      }, 0);
+  
+      return totalIncomes;
+    }
 
 
 }

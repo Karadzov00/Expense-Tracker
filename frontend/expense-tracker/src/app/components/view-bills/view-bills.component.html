@@ -20,7 +20,8 @@
       <div class="col-4" 
       *ngFor="let expense of (showFiltered ? filteredExpenses : allExpenses)">
         <mat-card>
-          <img [src]="expense.attachment" alt="Receipt Image" class="receipt-image">
+          <img [src]="expense.attachment" alt="Receipt Image" class="receipt-image"
+          role="button" (click)="viewExpense(expense)">
           <mat-card-content>
             <p>{{ expense.description }}</p>
             <p>Amount: {{ expense.amount }} {{ expense.currency }}</p>

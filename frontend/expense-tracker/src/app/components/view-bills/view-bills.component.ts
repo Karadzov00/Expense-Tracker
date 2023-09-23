@@ -107,4 +107,9 @@ export class ViewBillsComponent implements OnInit {
       }
     }
 
+    viewExpense(expense: Expense):void{
+      localStorage.setItem('selectedExpense', JSON.stringify(expense)); 
+      this.router.navigate(['expenseDetails']);
+    }
+
 }
