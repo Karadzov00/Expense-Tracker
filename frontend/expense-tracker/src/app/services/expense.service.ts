@@ -59,6 +59,10 @@ export class ExpenseService {
   deleteExpense(id: number){
     return this.http.delete(`${this.uri}/expenses/deleteExpense/${id}`);
   }
+  
+  deleteIncome(id: number){
+    return this.http.delete(`${this.uri}/expenses/deleteIncome/${id}`);
+  }
 
   updateExpense(expense: Expense){
     const data={

@@ -13,5 +13,6 @@ expenseRouter.route('/addExpense').post((req, res) => new expense_controller_1.E
 expenseRouter.route('/addIncome').post((req, res) => new expense_controller_1.ExpenseController().addIncome(req, res));
 expenseRouter.route('/updateExpense').put((req, res) => new expense_controller_1.ExpenseController().updateExpense(req, res));
 expenseRouter.route('/deleteExpense/:id').delete((req, res) => { new expense_controller_1.ExpenseController().deleteExpense(req, res); });
+expenseRouter.route('/deleteIncome/:id').delete((req, res) => { new expense_controller_1.ExpenseController().deleteIncome(req, res); });
 exports.default = expenseRouter;
 //# sourceMappingURL=expense.routes.js.map

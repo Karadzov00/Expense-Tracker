@@ -1,0 +1,11 @@
+/* Add rounded edges to MatCard */
+.rounded-card {
+    border-radius: 15px;
+  }
+  
+  /* Add blue background color to MatCard */
+  .card-style {
+    background-color: #AEC6CF; /* Pastel blue color code */
+    color: #000; /* Text color (black) */
+  }
+  

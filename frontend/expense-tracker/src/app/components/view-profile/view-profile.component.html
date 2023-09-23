@@ -44,5 +44,31 @@
         </table>
       </div>
     </div>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row">
+            <h1>All of your incomes:</h1>
+            <div class="col-12 col-md-3 mb-4" *ngFor="let income of allIncomes">
+              <mat-card class="rounded-card card-style">
+                <mat-card-header>
+                  <mat-card-title>{{ income.source }}</mat-card-title>
+                  <mat-card-subtitle>{{ income.date | date: 'mediumDate' }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <p><strong>Amount:</strong> {{ income.amount }} {{ income.currency }}</p>
+                  <p><strong>Username:</strong> {{ income.username }}</p>
+                  <button class="btn " (click)="deleteIncome(income)">
+                    <i class="bi bi-trash" style="color: red;"></i> 
+                  </button>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
   </div>
   

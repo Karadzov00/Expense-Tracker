@@ -31,5 +31,9 @@ expenseRouter.route('/deleteExpense/:id').delete(
     (req, res) => {new ExpenseController().deleteExpense(req, res) }
 )
 
+expenseRouter.route('/deleteIncome/:id').delete(
+    (req, res) => {new ExpenseController().deleteIncome(req, res) }
+)
+
 
 export default expenseRouter;
