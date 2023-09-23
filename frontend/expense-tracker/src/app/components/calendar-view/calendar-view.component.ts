@@ -50,6 +50,8 @@ export class CalendarViewComponent implements OnInit {
         this.calendar = new Calendar(document.getElementById('calendar'), {
           plugins: [dayGridPlugin],
           events: this.formatExpensesToEvents(this.allExpenses), // Implement this method to provide events
+          eventColor: 'red', // Set event text color
+           // Set event background color
         });
     
         this.calendar.render();
@@ -59,7 +61,7 @@ export class CalendarViewComponent implements OnInit {
 
   formatExpensesToEvents(expenses: Expense[]) {
     return expenses.map(expense => ({
-      title: expense.description, // Use expense description as the event title
+      title: expense.description , // Use expense description as the event title
       start: new Date(expense.date) // Convert expense date to a Date object
     }));
   }

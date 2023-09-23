@@ -49,15 +49,27 @@ export class AppComponent {
   }
 
   routerAddExpense(){
+    if(!this.user){
+      alert(['Please log in first'])
+      return; 
+    }
     this.router.navigate(['addExpense']);
   }
 
   routerReport(){
+    if(!this.user){
+      alert(['Please log in first'])
+      return; 
+    }
     this.router.navigate(['report']);
 
   }
 
   routerDashboard(){
+    if(!this.user){
+      alert(['Please log in first'])
+      return; 
+    }
     this.router.navigate(['dashboard']);
 
   }

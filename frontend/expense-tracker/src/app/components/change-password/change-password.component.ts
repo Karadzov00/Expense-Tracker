@@ -57,7 +57,7 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     if(this.userService.checkPassword(this.password2)==false){
-      this.message="New password is not in right format!"; 
+      this.message="New password must consist of uppercase, lowercase, number and special character!"; 
       this.showAlert=true; 
       this.passwordChanged=false; 
       return;

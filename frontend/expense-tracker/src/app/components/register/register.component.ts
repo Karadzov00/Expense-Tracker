@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if(this.userService.checkPassword(this.password)==false){
-      this.message="Password is not in right form!"; 
+      this.message="Password must consist of uppercase, lowercase, number and special character!"; 
       this.userAdded=false;    
       return; 
     }
