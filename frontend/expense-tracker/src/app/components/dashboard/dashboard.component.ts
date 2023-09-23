@@ -84,16 +84,19 @@ export class DashboardComponent implements OnInit {
         this.calculateCategoryExpenses(this.allExpenses);
         console.log(this.sumsByMonth);
         // expenseCarousel();
-      });
+        this.expenseService.fetchIncomesByPeriod(this.user.username, date1,
+          currentDate).subscribe((incomes: Income[])=>{
+            
+            console.log("INCOMES");
+            console.log("");
+            console.log(incomes);
+            this.allIncomes = incomes;
 
-      this.expenseService.fetchIncomesByPeriod(this.user.username, date1,
-        currentDate).subscribe((incomes: Income[])=>{
-          
-          console.log("INCOMES");
-          console.log("");
-          console.log(incomes);
-          this.allIncomes = incomes;
-        });
+            console.log(this.calculateCurrentBudget());
+
+          });
+      });
+      
     
   }
 
@@ -214,6 +217,19 @@ export class DashboardComponent implements OnInit {
   }
   viewAddIncome():void{
     this.router.navigate(['addIncome']);
+  }
+
+  calculateCurrentBudget(): number {
+    // Calculate total income
+    const totalIncome = this.allIncomes.reduce((sum, income) => sum + income.amount, 0);
+  
+    // Calculate total expenses
+    const totalExpense = this.allExpenses.reduce((sum, expense) => sum + expense.amount, 0);
+  
+    // Calculate current budget
+    const currentBudget = totalIncome - totalExpense;
+  
+    return currentBudget;
   }
 
 
