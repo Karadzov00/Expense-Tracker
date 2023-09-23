@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     this.noUserImage = NO_USER_IMG;
   }
 
- register(){
+ async register(){
     //provera da li su sva polja popunjena 
     this.showAlert=true; 
     if(!this.username || !this.password || !this.password2 || !this.firstname || !this.lastname || !this.email ){
@@ -63,7 +63,9 @@ export class RegisterComponent implements OnInit {
       return; 
     }
 
-    this.userService.findUser(this.username).subscribe((user:User)=>{
+    console.log("before finuser");
+    console.log(this.username);
+    await this.userService.findUser(this.username).subscribe((user:User)=>{
       if(user!=null){
         this.message="User with that username already exists!"; 
         this.userAdded=false; 
@@ -71,36 +73,39 @@ export class RegisterComponent implements OnInit {
 
         return; 
       }
+      else{
+        this.exitFunc=false;
+        if(!this.userAdded && this.exitFunc)return; 
+        console.log("proso");
+     
+        if(!this.selectedFile){
+          this.userImage=this.noUserImage; 
+        }
+        else{
+          console.log("dohvacen image preko forme"); 
+          this.userImage=this.image; 
+        }
+    
+        if(this.userImage){
+          console.log("dohvacen image"); 
+        }
+        console.log(this.userImage); 
+    
+        this.userService.register(this.username, this.password, this.email, 
+          this.firstname, this.lastname, this.userImage ).subscribe(
+            respObj=>{
+              if(respObj['message']=='ok'){
+                this.successMessage='User added'; 
+                this.userAdded=true;    
+              }
+              else{
+                this.message='Error!'
+              }
+            }
+          );
+      }
     })
 
-    if(!this.userAdded && this.exitFunc)return; 
-
- 
-    if(!this.selectedFile){
-      this.userImage=this.noUserImage; 
-    }
-    else{
-      console.log("dohvacen image preko forme"); 
-      this.userImage=this.image; 
-    }
-
-    if(this.userImage){
-      console.log("dohvacen image"); 
-    }
-    console.log(this.userImage); 
-
-    this.userService.register(this.username, this.password, this.email, 
-      this.firstname, this.lastname, this.userImage ).subscribe(
-        respObj=>{
-          if(respObj['message']=='ok'){
-            this.successMessage='User added'; 
-            this.userAdded=true;    
-          }
-          else{
-            this.message='Error!'
-          }
-        }
-      )
   }
 
   processFile(imageInput: any) {

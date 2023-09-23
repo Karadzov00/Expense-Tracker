@@ -25,9 +25,10 @@
       </ul>
       <div class="d-flex align-items-center" id="login">
         <a class="navbar-brand" *ngIf="!user" >
-          <img src="assets/no_user_image.png" alt="" width="30" height="32" id="avatar">
+          <img src="assets/no_user_image.png" alt="" width="30" height="32" id="avatar"
+          >
         </a>
-        <a class="navbar-brand"  *ngIf="user">
+        <a class="navbar-brand"  *ngIf="user" role="button" (click)="viewProfile()">
           <img [src]="user.profile_picture" alt="" width="30" height="32" id="avatar">
         </a>
         <form class=" mr-2">

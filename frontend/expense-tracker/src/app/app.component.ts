@@ -74,4 +74,12 @@ export class AppComponent {
 
   }
 
+  viewProfile():void{
+    if(!this.user){
+      alert(['Please log in first'])
+      return; 
+    }
+    this.router.navigate(['viewProfile']);
+  }
+
 }

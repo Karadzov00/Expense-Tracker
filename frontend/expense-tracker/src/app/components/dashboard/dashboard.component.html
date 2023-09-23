@@ -35,6 +35,7 @@
           <div class="row justify-content-center">
             <div class="col-8 col-md-8">
               <div>
+                <h1>Total expenses previous 6 months:</h1>
                 <div class="col-3 col-md-3">
                   <label for="currencySelector" class="form-label">Select Currency:</label>
                   <select id="currencySelector" class="form-select" [(ngModel)]="selectedCurrency" (change)="expenseSumsByMonth(); calculateCurrentBudget()">
