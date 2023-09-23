@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
     date1.setMonth(0); // January (0-based index)
     date1.setDate(1);
 
-    this.expenseService.fetchExpensesByPeriod(this.user.username, sixMonthsAgo,
+    this.expenseService.fetchExpensesByPeriod(this.user.username, date1,
       currentDate).subscribe((expenses: Expense[])=>{
         console.log(expenses);
         this.allExpenses = expenses;
@@ -196,8 +196,13 @@ export class DashboardComponent implements OnInit {
   }
 
   viewProfile():void{
-    this.router.navigate(['expenseDetails']);
+    this.router.navigate(['viewProfile']);
   }
+  viewBills():void{
+    this.router.navigate(['viewBills']);
+  }
+
+
 }
 
 
