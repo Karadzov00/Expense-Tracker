@@ -8,6 +8,7 @@ const expense_controller_1 = require("../controllers/expense.controller");
 const expenseRouter = express_1.default.Router();
 expenseRouter.route('/fetchAllCategories').get((req, res) => new expense_controller_1.ExpenseController().fetchAllCategories(req, res));
 expenseRouter.route('/fetchExpensesByPeriod').get((req, res) => new expense_controller_1.ExpenseController().fetchExpensesByPeriod(req, res));
+expenseRouter.route('/fetchIncomesByPeriod').get((req, res) => new expense_controller_1.ExpenseController().fetchIncomesByPeriod(req, res));
 expenseRouter.route('/addExpense').post((req, res) => new expense_controller_1.ExpenseController().addExpense(req, res));
 expenseRouter.route('/addIncome').post((req, res) => new expense_controller_1.ExpenseController().addIncome(req, res));
 expenseRouter.route('/updateExpense').put((req, res) => new expense_controller_1.ExpenseController().updateExpense(req, res));

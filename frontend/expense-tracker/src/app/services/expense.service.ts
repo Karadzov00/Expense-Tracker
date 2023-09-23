@@ -44,6 +44,17 @@ export class ExpenseService {
     return this.http.get(`${this.uri}/expenses/fetchExpensesByPeriod`, { params });
 
   }
+  fetchIncomesByPeriod(username: string, date1: Date, date2: Date){
+
+    const params = new HttpParams()
+    .set('username', username)
+    .set('date1', date1.toISOString()) // Convert Date to ISO string
+    .set('date2', date2.toISOString()); // Convert Date to ISO string
+
+    // Make the GET request with the query parameters
+    return this.http.get(`${this.uri}/expenses/fetchIncomesByPeriod`, { params });
+
+  }
 
   deleteExpense(id: number){
     return this.http.delete(`${this.uri}/expenses/deleteExpense/${id}`);

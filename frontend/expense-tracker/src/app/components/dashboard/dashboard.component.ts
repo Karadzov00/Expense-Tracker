@@ -7,6 +7,7 @@ import { CurrencyService } from 'src/app/services/currency.service';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts'; // Import ngx-charts module
 import { Router } from '@angular/router';
+import { Income } from 'src/app/models/income';
 
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -32,6 +33,7 @@ export class DashboardComponent implements OnInit {
   allCategories: Category[];
   user: User;
   allExpenses: Expense[];
+  allIncomes: Income[];
   expensesInPastSixMonths: Expense[];
   sumsByMonth: { [key: string]: number } = {};
   //data for pie chart 
@@ -82,7 +84,16 @@ export class DashboardComponent implements OnInit {
         this.calculateCategoryExpenses(this.allExpenses);
         console.log(this.sumsByMonth);
         // expenseCarousel();
-      })
+      });
+
+      this.expenseService.fetchIncomesByPeriod(this.user.username, date1,
+        currentDate).subscribe((incomes: Income[])=>{
+          
+          console.log("INCOMES");
+          console.log("");
+          console.log(incomes);
+          this.allIncomes = incomes;
+        });
     
   }
 

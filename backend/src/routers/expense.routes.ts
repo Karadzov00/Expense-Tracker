@@ -11,6 +11,9 @@ expenseRouter.route('/fetchAllCategories').get(
 expenseRouter.route('/fetchExpensesByPeriod').get(
     (req, res) => new ExpenseController().fetchExpensesByPeriod(req, res)
 )
+expenseRouter.route('/fetchIncomesByPeriod').get(
+    (req, res) => new ExpenseController().fetchIncomesByPeriod(req, res)
+)
 
 expenseRouter.route('/addExpense').post(
     (req, res) => new ExpenseController().addExpense(req, res)
