@@ -90,7 +90,6 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     NgxChartsModule,
     NgbModule,
     FullCalendarModule,
-    Calendar
 
   ],
   providers: [],

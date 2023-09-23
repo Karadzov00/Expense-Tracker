@@ -6,8 +6,8 @@ import { Expense } from 'src/app/models/expense';
 import { User } from 'src/app/models/user';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { ExpenseService } from 'src/app/services/expense.service';
-
-
+import { CalendarOptions } from '@fullcalendar/core';
+import { Calendar } from '@fullcalendar/core';
 @Component({
   selector: 'app-calendar-view',
   templateUrl: './calendar-view.component.html',
@@ -18,6 +18,8 @@ export class CalendarViewComponent implements OnInit {
   user:User;
   allExpenses: Expense[]=[];
   allDates: Date[] = [];
+  calendarOptions: CalendarOptions;
+  calendar: Calendar;
 
 
   constructor(private currencyService: CurrencyService, private expenseService: ExpenseService, private router:Router) {
@@ -37,20 +39,29 @@ export class CalendarViewComponent implements OnInit {
     date1.setMonth(0); // January (0-based index)
     date1.setDate(1);
 
-    await this.expenseService.fetchExpensesByPeriod(this.user.username, date1,
+     this.expenseService.fetchExpensesByPeriod(this.user.username, date1,
       currentDate).subscribe((expenses: Expense[])=>{
         console.log(expenses);
         this.allExpenses = expenses;
         this.allDates = this.allExpenses.map((expense) => new Date(expense.date));
         console.log(this.allDates);
+
+
+        this.calendar = new Calendar(document.getElementById('calendar'), {
+          plugins: [dayGridPlugin],
+          events: this.formatExpensesToEvents(this.allExpenses), // Implement this method to provide events
+        });
+    
+        this.calendar.render();
+    
       });
-
-
-   
-      
-
   }
 
-
+  formatExpensesToEvents(expenses: Expense[]) {
+    return expenses.map(expense => ({
+      title: expense.description, // Use expense description as the event title
+      start: new Date(expense.date) // Convert expense date to a Date object
+    }));
+  }
 
 }
