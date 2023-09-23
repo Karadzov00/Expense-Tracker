@@ -1,6 +1,9 @@
-#cardStyle{
-    margin-left: 20px;
-    padding-left: 70px;
-    padding-right: 100px;
-    border-radius: 5px;
-}
+/* styles.css or your component-specific CSS file */
+.pastel-blue-card {
+    background-color: #a4c3e0; /* Use your desired pastel blue color code here */
+    border: none; /* Remove the card border if needed */
+    border-radius: 10px; /* Add rounded corners to the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
+    color: #ffffff; /* Set the text color */
+  }
+  

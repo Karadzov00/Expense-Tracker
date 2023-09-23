@@ -249,6 +249,10 @@ export class DashboardComponent implements OnInit {
   viewAddIncome():void{
     this.router.navigate(['addIncome']);
   }
+  
+  calendarView():void{
+    this.router.navigate(['calendarView']);
+  }
 
   calculateCurrentBudget(): number {
     // Calculate total income

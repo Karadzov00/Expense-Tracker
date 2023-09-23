@@ -12,6 +12,7 @@ import { EditExpenseComponent } from './components/edit-expense/edit-expense.com
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewBillsComponent } from './components/view-bills/view-bills.component';
 import { AddIncomeComponent } from './components/add-income/add-income.component';
+import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'viewProfile', component: ViewProfileComponent},
   {path: 'viewBills', component: ViewBillsComponent},
   {path: 'addIncome', component: AddIncomeComponent},
+  {path: 'calendarView', component: CalendarViewComponent},
 ];
 
 @NgModule({

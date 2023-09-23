@@ -40,6 +40,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewBillsComponent } from './components/view-bills/view-bills.component';
 import { AddIncomeComponent } from './components/add-income/add-income.component';
+import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,7 @@ import { AddIncomeComponent } from './components/add-income/add-income.component
     ViewProfileComponent,
     ViewBillsComponent,
     AddIncomeComponent,
+    CalendarViewComponent,
     
   ],
   imports: [
@@ -84,7 +88,10 @@ import { AddIncomeComponent } from './components/add-income/add-income.component
     MatDatepickerModule,
     NgChartsModule,
     NgxChartsModule,
-    NgbModule
+    NgbModule,
+    FullCalendarModule,
+    Calendar
+
   ],
   providers: [],
   bootstrap: [AppComponent]

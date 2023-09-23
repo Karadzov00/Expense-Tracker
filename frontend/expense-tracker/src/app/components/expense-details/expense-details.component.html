@@ -1,6 +1,20 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-6 col-md-5 mt-3 mb-2">
+            <div class="row justify-content-start">
+                <div class="col text-start">
+                  <button class="btn" (click)="editExpense(expense)">
+                    <i class="bi bi-pencil" style="color: rgb(0, 0, 0);"></i>
+                  </button>
+                </div>
+                <div class="col text-start">
+                  <button class="btn" (click)="deleteExpense(expense)">
+                    <i class="bi bi-trash" style="color: red;"></i>
+                  </button>
+                </div>
+              </div>
+              
+              
             <div class="card" style="width: 18rem;">
                 <img [src]="expense.attachment" class="card-img-top" alt="..."
                 *ngIf="expense.attachment">

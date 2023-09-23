@@ -57,4 +57,15 @@ export class ExpenseDetailsComponent implements OnInit {
     ];
   }
 
+  editExpense(expense: Expense):void{
+    localStorage.setItem('selectedExpense', JSON.stringify(expense)); 
+    this.router.navigate(['editExpense']);
+  }
+
+  deleteExpense(expense: Expense):void{
+    this.expenseService.deleteExpense(expense.id).subscribe((resp:String)=>{
+      alert(resp['message']);
+    })
+  }
+
 }

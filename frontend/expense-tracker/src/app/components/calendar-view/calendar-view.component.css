@@ -1,0 +1,8 @@
+.red-dot {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* To create a circular red dot */
+    display: inline-block;
+  }
+  
