@@ -11,6 +11,7 @@ import { ExpenseDetailsComponent } from './components/expense-details/expense-de
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewBillsComponent } from './components/view-bills/view-bills.component';
+import { AddIncomeComponent } from './components/add-income/add-income.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'editExpense', component: EditExpenseComponent},
   {path: 'viewProfile', component: ViewProfileComponent},
   {path: 'viewBills', component: ViewBillsComponent},
+  {path: 'addIncome', component: AddIncomeComponent},
 ];
 
 @NgModule({

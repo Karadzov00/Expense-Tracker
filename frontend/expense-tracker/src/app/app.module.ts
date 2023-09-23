@@ -39,6 +39,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewBillsComponent } from './components/view-bills/view-bills.component';
+import { AddIncomeComponent } from './components/add-income/add-income.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { ViewBillsComponent } from './components/view-bills/view-bills.component
     EditExpenseComponent,
     ViewProfileComponent,
     ViewBillsComponent,
+    AddIncomeComponent,
     
   ],
   imports: [

@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-8 col-md-5 mt-3">
+            
+            <mat-card  class="purple-card">
+                <mat-card-header>
+                    <mat-card-title>Add Income</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+
+                <div class="input-group mb-3 mt-2">
+                <span class="input-group-text">Date:</span>
+                <input type="text" class="form-control" [matDatepicker]="picker2" [(ngModel)]="date">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                </div>
+                <div class="input-group mb-3 mt-2">
+                
+                </div>
+            </mat-card-content>
+          </mat-card>
+          
+        </div>
+    </div>
+</div>

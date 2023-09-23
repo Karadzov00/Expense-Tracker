@@ -201,6 +201,9 @@ export class DashboardComponent implements OnInit {
   viewBills():void{
     this.router.navigate(['viewBills']);
   }
+  viewAddIncome():void{
+    this.router.navigate(['addIncome']);
+  }
 
 
 }
