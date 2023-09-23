@@ -178,7 +178,6 @@ export class DashboardComponent implements OnInit {
 
   // Function to get the last 3 expenses by date
   getLast3Expenses(): Expense[] {
-    console.log(this.allExpenses[1].date)
     return this.allExpenses
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       
@@ -193,6 +192,10 @@ export class DashboardComponent implements OnInit {
 
   viewExpense(expense: Expense):void{
     localStorage.setItem('selectedExpense', JSON.stringify(expense)); 
+    this.router.navigate(['expenseDetails']);
+  }
+
+  viewProfile():void{
     this.router.navigate(['expenseDetails']);
   }
 }

@@ -37,6 +37,7 @@ import { EditExpenseComponent } from './components/edit-expense/edit-expense.com
 import { NgChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReportComponent,
     ExpenseDetailsComponent,
     EditExpenseComponent,
+    ViewProfileComponent,
     
   ],
   imports: [
