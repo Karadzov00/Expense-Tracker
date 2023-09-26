@@ -3,13 +3,14 @@ const mongoose = require('mongoose');
 // Define the Expense schema
 const expenseSchema = new mongoose.Schema({
   id:Number,
-  username: String, // Assuming 'username' is related to the user who incurred the expense
+  username: String, 
   date: {
-     type: Date, required: true 
+    type: Date,
+    required: true 
   },
   categoryId: {
      type: Number
-  }, // Assuming a reference to a 'Category' model
+  }, 
   amount: {
     type: Number
   },
