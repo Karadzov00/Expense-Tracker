@@ -37,6 +37,26 @@ To run the frontend and backend parts of the application, follow these instructi
 
 3. Open your web browser and go to `http://localhost:4200` to access the application.
 
+## Setting up the Database
+
+To run the Expense Tracker application, you need to set up a MongoDB database and populate it with collections from the "database" directory. Follow these steps to configure the database:
+
+1. **MongoDB Installation**: Ensure you have MongoDB installed on your system. If not, you can download it from the [official MongoDB website](https://www.mongodb.com/try/download/community).
+
+2. **Database Creation**: Create a new MongoDB database for the Expense Tracker application using the MongoDB command-line interface or a graphical client like MongoDB Compass.
+
+3. **Populate Collections**: In the "database" directory, you'll find collections related to expenses and users. Import these collections into your newly created database. You can use the `mongoimport` command or a tool of your choice to achieve this.
+
+   For example, to import a collection using `mongoimport`, you can use the following command:
+
+   ```bash
+   mongoimport --db your_database_name --collection your_collection_name --file path/to/collection.json
+   ```
+
+4. **Database Connection**: In the backend of the Expense Tracker application, make sure to configure the connection to your MongoDB database. You can typically find this configuration in a file related to your database connection settings (e.g., `config.js` or `mongoose.js`).
+
+With your MongoDB database configured and populated, the Expense Tracker application will be able to store and retrieve expense and user data seamlessly. You are now ready to run the application as described in the previous sections.
+
 ### Backend
 
 1. Navigate to the `backend` directory.
