@@ -83,7 +83,7 @@ Your backend should now be running, and the application is ready to use. Make su
 
 ## License
 
-This Expense Tracker application is open-source software licensed under the MIT License. You can find the full license text in the `LICENSE` file in the project's root directory.
+This Expense Tracker application is open-source software licensed under the MIT License. 
 
 ## Issues and Contributions
 
