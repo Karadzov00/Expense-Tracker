@@ -64,7 +64,7 @@ export class ExpenseController{
     }
 
     fetchExpensesByPeriod = async (req: express.Request, res: express.Response)=>{
-        // Explicitly cast query parameters to strings
+
         const date1: string = req.query.date1 as string;
         const date2: string = req.query.date2 as string;
         const username: string = req.query.username as string;
@@ -73,7 +73,6 @@ export class ExpenseController{
         const date2AsDate = new Date(date2);
 
         try {
-            // Find expenses that match the criteria
             const expenses = await Expense.find({
             username: username,
             date: { $gte: date1AsDate, $lte: date2AsDate }, // Date is between date1 and date2

@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "650f0cc89ab6b3c49bcb1c02"
+  },
+  "id": 2,
+  "username": "karadzov",
+  "date": {
+    "$date": "2023-09-18T22:00:00.000Z"
+  },
+  "source": "Gift",
+  "amount": 50,
+  "currency": "EUR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650f78e24f55675f2a91876d"
+  },
+  "id": 3,
+  "username": "karadzov",
+  "date": {
+    "$date": "2023-09-18T22:00:00.000Z"
+  },
+  "source": "Salary",
+  "amount": 1450,
+  "currency": "EUR",
+  "__v": 0
+}]
