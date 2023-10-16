@@ -37,7 +37,7 @@ To run the frontend and backend parts of the application, follow these instructi
 
 3. Open your web browser and go to `http://localhost:4200` to access the application.
 
-## Setting up the Database
+### Setting up the Database
 
 To run the Expense Tracker application, you need to set up a MongoDB database and populate it with collections from the "database" directory. Follow these steps to configure the database:
 
